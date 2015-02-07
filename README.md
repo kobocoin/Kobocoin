@@ -1,4 +1,4 @@
 Kobocoin [ticker symbol KOBO]
 ========
 
-Kobocoin is Nigeria &amp; West Africa's first peer-to-peer micropayment system and digital currency similar to Bitcoin.
+Kobocoin is a West African peer-to-peer micropayment system and digital currency similar to Bitcoin.
