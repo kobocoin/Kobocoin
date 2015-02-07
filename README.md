@@ -6,7 +6,6 @@ RPC Port: 3341
 P2P Port: 9011
 
 Algorithm: X15 POW/POS
-
 Ticker: KOBO
 
 PoS Starts on Block 43,200 ~30 days
