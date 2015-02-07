@@ -1,0 +1,4 @@
+Building Kobocoin
+See doc/readme-qt.rst for instructions on building Kobocoin QT.
+
+See doc/build-*.txt for instructions on building kobocoind.
