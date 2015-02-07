@@ -1,4 +1,4 @@
-Kobocoin [KOBO] - A West African Micropayment system and digitial currency similar to Bitcoin.
+## Kobocoin [KOBO] - A West African Micropayment system and digitial currency similar to Bitcoin.
 
 X15 PoW/PoS Coin (Proof of work then Proof of stake)
 
