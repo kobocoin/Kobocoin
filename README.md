@@ -3,9 +3,11 @@ Kobocoin [KOBO]
 X15 PoW/PoS Coin (Proof of work then Proof of stake)
 
 RPC Port: 3341
+
 P2P Port: 9011
 
 Algorithm: X15 POW/POS
+
 Ticker: KOBO
 
 PoS Starts on Block 43,200 ~30 days
