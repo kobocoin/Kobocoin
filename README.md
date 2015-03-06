@@ -13,6 +13,7 @@ Ticker: KOBO
 PoS Starts on Block 43,200 ~30 days
 
 Max PoW Coins: 43,200,000 KOBO
+(Actual: 23,500,000 KOBO after PoW)
 
 Max Coins : 350,000,000
 
