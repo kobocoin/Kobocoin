@@ -3005,7 +3005,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;hackcoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;hackcoin Alert&quot; dev@kobocoin.com
 </source>
         <translation>%s, 設定ファイル：%sでrpcpasswordのパスワードを入力しなければならい
 
@@ -3016,7 +3016,7 @@ rpcpassword=%s
 ユーザ名とパスワードは同じであってはなりません。
 ファイルは存在しないばいは、所有者が読み取り可能な専用のファイルを作成してください。
 問題のことを知らせるために、alertnotifyの設定を有効にしたほうがいいです。
-例：alertnotify=echo %%s | mail -s &quot;ブラックコイン警告&quot; admin@foo.com
+例：alertnotify=echo %%s | mail -s &quot;ブラックコイン警告&quot; dev@kobocoin.com
 </translation>
     </message>
     <message>
