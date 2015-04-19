@@ -3007,7 +3007,7 @@ rpcpassword=%s
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;hackcoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;hackcoin Alert&quot; dev@kobocoin.com
 </source>
         <translation>%s, 必须在配置文件里设置rpc密码:
  %s
@@ -3018,7 +3018,7 @@ rpcpassword=%s
 用户名和密码不能重复。
 如果该文件不存在，请自行创建并设为用户本身只读权限。
 建议创建提示以监测可能的问题，如：
-alertnotify=echo %%s | mail -s &quot;hackcoin Alert&quot; admin@foo.com
+alertnotify=echo %%s | mail -s &quot;hackcoin Alert&quot; dev@kobocoin.com
 </translation>
     </message>
     <message>
