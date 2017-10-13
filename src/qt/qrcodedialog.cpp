@@ -83,7 +83,7 @@ void QRCodeDialog::genCode()
 
 QString QRCodeDialog::getURI()
 {
-    QString ret = QString("Kobocoin:%1").arg(address);
+    QString ret = QString("%1").arg(address); // removed 'coinname:' string as it interferes with QRcode rendering in Android wallet
     int paramCount = 0;
 
     ui->outUri->clear();

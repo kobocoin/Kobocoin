@@ -1139,7 +1139,12 @@ void MapPort()
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strDNSSeed[][2] = {
-    {"alltheco.in", "kobo.alltheco.in"}, //Main Kobocoin Seed Node
+    {"dns1.kobocoin.com", "dns1.kobocoin.com"},
+    {"dns2.kobocoin.com", "dns2.kobocoin.com"},
+    {"dns3.kobocoin.com", "dns3.kobocoin.com"},
+    {"dns4.kobocoin.com", "dns4.kobocoin.com"},
+
+
 };
 
 void ThreadDNSAddressSeed(void* parg)
