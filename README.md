@@ -32,4 +32,4 @@ Min stake age : 24 hrs
 
 6 confirmations required for transactions
 
-No premine
+No IPO, no ICO, no premine
