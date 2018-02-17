@@ -33,35 +33,29 @@ Coins per Block : 1,000
 No premine
 
 
-# Installation Instructions
+# Installation Instructions 
 ## Building Kobocoind (daemon/CLI) and kobocoin-qt (wallet/GUI)
-
+[Ubuntu 16.04 recommended](http://releases.ubuntu.com/16.04/ "Ubuntu 16.04")
 ### 1. Install dependencies and download source code
-`sudo apt-get update`
-
-`sudo apt-get install git`
-
-`sudo apt-get install qt4-qmake libqt4-dev build-essential libssl-dev libdb++-dev libminiupnpc-dev libqrencode-dev`
-
-
-`sudo apt-get install libboost-all-dev`
-
-`cd /<install_directory>/`
-
-`git clone git://github.com/kobocoin/Kobocoin`
-
-`sudo chmod -R 775 Kobocoin`
-
+```
+sudo apt-get update
+sudo apt-get install git
+sudo apt-get install qt4-qmake libqt4-dev build-essential libssl-dev libdb++-dev libminiupnpc-dev libqrencode-dev
+sudo apt-get install libboost-all-dev
+cd /<install_directory>/
+git clone git://github.com/kobocoin/Kobocoin
+sudo chmod -R 775 Kobocoin
+```
 ### 2. Build Kobocoind (daemon/CLI)
-`cd /<install_directory>/Kobocoin/src/`
-
-`cp makefile.unix Makefile`
-
-`make`
+```
+cd /<install_directory>/Kobocoin/src/
+cp makefile.unix Makefile
+make
+```
 
 ### 3. Build kobocoin-qt (wallet/GUI)
-`cd /<install_directory>/Kobocoin/`
-
-`qmake`
-
-`make`
+```
+cd /<install_directory>/Kobocoin/
+qmake
+make
+```
