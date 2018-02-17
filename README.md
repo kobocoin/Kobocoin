@@ -3,22 +3,20 @@
 ## The Kobocoin blockchain is optimised for mobile phone usage, and has an African heritage.
 
 
-#### Ticker : KOBO
-#### RPC Port : 3341
-#### P2P Port : 9011
-#### Algorithm : X15 PoW/PoS
-#### PoS Started on block 43,200 (PoW end - 25th February, 2015)
-#### Approx number of coins in circulation after PoW end : 23,500,000
-#### Max Coins : 350,000,000
-#### PoS currency growth per year : 10%
-#### Max stake age : No max
-#### Min stake age : 24 hrs
-#### Timings of block (in seconds) : 60
-#### Coins per Block : 1,000
-#### 50 confirmations required for mined blocks
-#### No premine
-
-
++ Ticker : KOBO
++ RPC Port : 3341
++ P2P Port : 9011
++ Algorithm : X15 PoW/PoS
++ PoS Started on block 43,200 (PoW end - 25th February, 2015)
++ Approx number of coins in circulation after PoW end : 23,500,000
++ Max Coins : 350,000,000
++ PoS currency growth per year : 10%
++ Max stake age : No max
++ Min stake age : 24 hrs
++ Timings of block (in seconds) : 60
++ Coins per Block : 1,000
++ 50 confirmations required for mined blocks
++ No premine
 
 ## Building Kobocoind (daemon/CLI) and kobocoin-qt (wallet/GUI)
 [Ubuntu 16.04 recommended](http://releases.ubuntu.com/16.04/ "Ubuntu 16.04")
