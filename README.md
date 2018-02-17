@@ -1,5 +1,5 @@
 ![Kobocoin](https://github.com/kobocoin/Kobocoin/blob/master/src/qt/res/images/splash.png "Kobocoin")
-# Kobocoin [KOBO]
+# Kobocoin
 ## A micropayment system and digitial currency similar to Bitcoin. 
 ## The Kobocoin blockchain is optimised for mobile phone usage, and has an African heritage.
 
