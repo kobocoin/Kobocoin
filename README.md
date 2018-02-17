@@ -1,36 +1,24 @@
+![Kobocoin](https://github.com/kobocoin/Kobocoin/blob/master/src/qt/res/images/splash.png "Kobocoin")
 # Kobocoin [KOBO]
-## A micropayment system and digitial currency similar to Bitcoin. The Kobocoin blockchain is optimised for mobile phone usage, and has an African heritage.
+## A micropayment system and digitial currency similar to Bitcoin. 
+## The Kobocoin blockchain is optimised for mobile phone usage, and has an African heritage.
 
 
-RPC Port: 3341
-
-P2P Port: 9011
-
-Algorithm: X15 PoW/PoS
-
-Ticker: KOBO
-
-PoS Started on block 43,200 (PoW end - 25th February, 2015)
-
-Approx number of coins in circulation after PoW end: 23,500,000
-
-Max Coins: 350,000,000
-
-PoS currency growth per year: 10%
-
-Max stake age: No max
-
-Min stake age: 24 hrs
-
-Timings of block (in seconds): 60
-
-Coins per Block : 1,000
-
-50 confirmations required for mined blocks
-
-6 confirmations required for transactions
-
-No premine
+### Ticker : KOBO
+### RPC Port : 3341
+### P2P Port : 9011
+### Algorithm : X15 PoW/PoS
+### PoS Started on block 43,200 (PoW end - 25th February, 2015)
+### Approx number of coins in circulation after PoW end : 23,500,000
+### Max Coins : 350,000,000
+### PoS currency growth per year : 10%
+### Max stake age : No max
+### Min stake age : 24 hrs
+### Timings of block (in seconds) : 60
+### Coins per Block : 1,000
+### 50 confirmations required for mined blocks
+### 6 confirmations required for transactions
+### No premine/ICO/IPO
 
 
 # Installation Instructions 
