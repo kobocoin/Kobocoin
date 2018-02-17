@@ -34,7 +34,7 @@ No premine
 
 
 # Installation Instructions
-## Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
+## Building Kobocoind (daemon/CLI) and kobocoin-qt (wallet/GUI)
 
 ### 1. Install dependencies and download source code
 `sudo apt-get update`
@@ -52,7 +52,7 @@ No premine
 
 `sudo chmod -R 775 Kobocoin`
 
-### 2. Build Kobocoind (daemon)
+### 2. Build Kobocoind (daemon/CLI)
 `cd /<install_directory>/Kobocoin/src/`
 
 `cp makefile.unix Makefile`
