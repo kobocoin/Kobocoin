@@ -16,7 +16,7 @@
 #### Timings of block (in seconds) : 60
 #### Coins per Block : 1,000
 #### 50 confirmations required for mined blocks
-#### No premine/ICO/IPO
+#### No premine
 
 
 # Installation Instructions 
