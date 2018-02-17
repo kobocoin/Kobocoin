@@ -19,7 +19,7 @@
 #### No premine
 
 
-# Installation Instructions 
+
 ## Building Kobocoind (daemon/CLI) and kobocoin-qt (wallet/GUI)
 [Ubuntu 16.04 recommended](http://releases.ubuntu.com/16.04/ "Ubuntu 16.04")
 ### 1. Install dependencies and download source code
