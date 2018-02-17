@@ -35,6 +35,7 @@ sudo chmod -R 775 Kobocoin
 cd /<install_directory>/Kobocoin/src/
 cp makefile.unix Makefile
 make
+strip Kobocoind
 ```
 
 ### 3. Build kobocoin-qt (wallet/GUI)
