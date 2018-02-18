@@ -43,4 +43,5 @@ strip Kobocoind
 cd /<install_directory>/Kobocoin/
 qmake
 make
+strip kobocoin-qt
 ```
