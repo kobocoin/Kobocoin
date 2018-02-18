@@ -1,6 +1,6 @@
 ![Kobocoin](http://kobocoin.com/KobocoinLogoNew.png "Kobocoin")
 ## A micropayment system and digitial currency similar to Bitcoin. 
-## The Kobocoin blockchain is PoS, optimised for mobile phone usage, and has an African heritage.
+## Kobocoin is PoS, optimised for mobile phone usage, and has an African heritage.
 
 
 + Ticker : KOBO
