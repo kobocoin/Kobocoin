@@ -30,7 +30,7 @@ cd /<install_directory>/
 git clone git://github.com/kobocoin/Kobocoin
 sudo chmod -R 775 Kobocoin
 ```
-### 2. Build Kobocoind (daemon/CLI)
+### 2. Build Kobocoind (daemon)
 ```
 cd /<install_directory>/Kobocoin/src/
 cp makefile.unix Makefile
