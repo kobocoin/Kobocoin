@@ -26,13 +26,12 @@ sudo apt-get update
 sudo apt-get install git
 sudo apt-get install qt4-qmake libqt4-dev build-essential libssl-dev libdb++-dev libminiupnpc-dev libqrencode-dev
 sudo apt-get install libboost-all-dev
-cd /<install_directory>/
 git clone git://github.com/kobocoin/Kobocoin
 sudo chmod -R 775 Kobocoin
 ```
 ### 2. Build Kobocoind (daemon)
 ```
-cd /<install_directory>/Kobocoin/src/
+goto <installDirectory>/Kobocoin/src/
 cp makefile.unix Makefile
 make
 strip Kobocoind
@@ -40,7 +39,7 @@ strip Kobocoind
 
 ### 3. Build kobocoin-qt (wallet/GUI)
 ```
-cd /<install_directory>/Kobocoin/
+goto <installDirectory>/Kobocoin/
 qmake
 make
 strip kobocoin-qt
