@@ -18,7 +18,7 @@
 + 50 confirmations required for mined blocks
 + No premine
 
-## Building Kobocoind (daemon/CLI) and kobocoin-qt (wallet/GUI)
+## Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
 [Ubuntu 16.04 recommended](http://releases.ubuntu.com/16.04/ "Ubuntu 16.04")
 ### 1. Install dependencies and download source code
 ```
