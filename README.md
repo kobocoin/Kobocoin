@@ -1,6 +1,6 @@
-# Kobocoin
-## A micropayment system and digitial currency similar to Bitcoin. 
-## Kobocoin is PoS, optimised for mobile phone usage, and has an African heritage.
+## Kobocoin
+### A micropayment system and digitial currency similar to Bitcoin. 
+### Kobocoin is PoS, optimised for mobile phone usage, and has an African heritage.
 
 
 + Ticker : KOBO
@@ -18,11 +18,11 @@
 + 50 confirmations required for mined blocks
 + No premine
 
-## Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
+### Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
 + [Ubuntu 16.04 recommended](http://releases.ubuntu.com/16.04/ "Ubuntu 16.04")
 + [Use Docker? Click here to docker build your v2.1.0.3 container](https://github.com/kobocoin/dockerfiles/tree/master/v2103-stable "Dockerfiles")
 
-### 1. Install dependencies and download source code
+#### 1. Install dependencies and download source code
 ```
 sudo apt-get update
 sudo apt-get install git
@@ -31,7 +31,7 @@ sudo apt-get install libboost-all-dev
 git clone git://github.com/kobocoin/Kobocoin
 sudo chmod -R 775 Kobocoin
 ```
-### 2. Build Kobocoind (daemon)
+#### 2. Build Kobocoind (daemon)
 ```
 goto <installDirectory>/Kobocoin/src/
 cp makefile.unix Makefile
@@ -39,7 +39,7 @@ make
 strip Kobocoind
 ```
 
-### 3. Build kobocoin-qt (wallet/GUI)
+#### 3. Build kobocoin-qt (wallet/GUI)
 ```
 goto <installDirectory>/Kobocoin/
 qmake
