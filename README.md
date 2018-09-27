@@ -13,7 +13,7 @@
 + PoS currency growth per year : 10%
 + Max stake age : No max
 + Min stake age : 24 hrs
-+ Timings of block (in seconds) : 60
++ Timing of block (in seconds) : 60
 + Coins per Block : 1,000
 + 50 confirmations required for mined blocks
 + No ICO, premine, or instamine
