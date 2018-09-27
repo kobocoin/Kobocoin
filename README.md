@@ -16,7 +16,7 @@
 + Timings of block (in seconds) : 60
 + Coins per Block : 1,000
 + 50 confirmations required for mined blocks
-+ No premine
++ No ICO, premine, or instamine
 
 ### Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
 + [Ubuntu 16.04 recommended](http://releases.ubuntu.com/16.04/ "Ubuntu 16.04")
