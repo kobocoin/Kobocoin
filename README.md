@@ -30,6 +30,8 @@ sudo apt-get install qt4-qmake libqt4-dev build-essential libssl-dev libdb++-dev
 sudo apt-get install libboost-all-dev
 git clone git://github.com/kobocoin/Kobocoin
 sudo chmod -R 775 Kobocoin
+
+(CentOS: sudo yum install qrencode.x86_64 PyQt4-devel.x86_64 openssl-devel.x86_64 miniupnpc-devel.x86_64 gcc gcc-c++ kernel-devel make boost-devel libdb-cxx-devel.x86_64)
 ```
 #### 2. Build Kobocoind (daemon)
 ```
@@ -37,6 +39,8 @@ goto <installDirectory>/Kobocoin/src/
 cp makefile.unix Makefile
 make
 strip Kobocoind
+
+(CentOS: make USE_UPNP=-)
 ```
 
 #### 3. Build kobocoin-qt (wallet/GUI)
