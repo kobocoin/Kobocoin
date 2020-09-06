@@ -25,9 +25,7 @@
 #### 1. Install dependencies and download source code
 ```
 sudo apt-get update
-sudo apt-get install git
-sudo apt-get install qt4-qmake libqt4-dev build-essential libssl-dev libdb++-dev libminiupnpc-dev libqrencode-dev
-sudo apt-get install libboost-all-dev
+sudo apt-get install qt4-qmake libqt4-dev build-essential libssl-dev libdb++-dev libminiupnpc-dev libqrencode-dev git libboost-all-dev
 git clone git://github.com/kobocoin/Kobocoin
 sudo chmod -R 775 Kobocoin
 
