@@ -17,6 +17,7 @@
 + Coins per Block : 1,000
 + 50 confirmations required for mined blocks
 + No ICO, premine, or instamine
++ Based on Bitcon 0.7
 
 ## Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
 
