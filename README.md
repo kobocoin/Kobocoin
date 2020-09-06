@@ -18,7 +18,7 @@
 + 50 confirmations required for mined blocks
 + No ICO, premine, or instamine
 
-### Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
+## Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
 
 
 #### 1. Install dependencies and download source code
