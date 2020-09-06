@@ -19,8 +19,7 @@
 + No ICO, premine, or instamine
 
 ### Building Kobocoind (daemon) and kobocoin-qt (wallet/GUI)
-+ [Ubuntu 16.04 recommended](http://releases.ubuntu.com/16.04/ "Ubuntu 16.04")
-+ [Use Docker? Click here to docker build your v2.1.0.3 container](https://github.com/kobocoin/dockerfiles/tree/master/v2103-stable "Dockerfiles")
+
 
 #### 1. Install dependencies and download source code
 ```
