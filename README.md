@@ -1,4 +1,6 @@
 Bitcoin Core integration/staging tree
+
+[TEMP MESSAGE: Using bitcoin core for kobocoin rebase]
 =====================================
 
 [![Build Status](https://travis-ci.org/bitcoin/bitcoin.svg?branch=master)](https://travis-ci.org/bitcoin/bitcoin)
