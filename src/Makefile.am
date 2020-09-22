@@ -65,11 +65,11 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += bitcoinplusd
+  bin_PROGRAMS += kobocoind
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += bitcoinplus-cli bitcoinplus-tx
+  bin_PROGRAMS += kobocoin-cli kobocoin-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
@@ -337,16 +337,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-bitcoinplusd_SOURCES = bitcoind.cpp
-bitcoinplusd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-bitcoinplusd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bitcoinplusd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+kobocoind_SOURCES = bitcoind.cpp
+kobocoind_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+kobocoind_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+kobocoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoinplusd_SOURCES += bitcoind-res.rc
+kobocoind_SOURCES += bitcoind-res.rc
 endif
 
-bitcoinplusd_LDADD = \
+kobocoind_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -359,38 +359,38 @@ bitcoinplusd_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-bitcoinplusd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+kobocoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
 # bitcoin-cli binary #
-bitcoinplus_cli_SOURCES = bitcoin-cli.cpp
-bitcoinplus_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-bitcoinplus_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bitcoinplus_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+kobocoin_cli_SOURCES = bitcoin-cli.cpp
+kobocoin_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+kobocoin_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+kobocoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoinplus_cli_SOURCES += bitcoin-cli-res.rc
+kobocoin_cli_SOURCES += bitcoin-cli-res.rc
 endif
 
-bitcoinplus_cli_LDADD = \
+kobocoin_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-bitcoinplus_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+kobocoin_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
 # bitcoin-tx binary #
-bitcoinplus_tx_SOURCES = bitcoin-tx.cpp
-bitcoinplus_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-bitcoinplus_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bitcoinplus_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+kobocoin_tx_SOURCES = bitcoin-tx.cpp
+kobocoin_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+kobocoin_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+kobocoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoinplus_tx_SOURCES += bitcoin-tx-res.rc
+kobocoin_tx_SOURCES += bitcoin-tx-res.rc
 endif
 
-bitcoinplus_tx_LDADD = \
+kobocoin_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -398,7 +398,7 @@ bitcoinplus_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-bitcoinplus_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+kobocoin_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

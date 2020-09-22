@@ -20,7 +20,7 @@ import collections
 PATTERN_IPV4 = re.compile(r"^((\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})):(\d+)$")
 PATTERN_IPV6 = re.compile(r"^\[([0-9a-z:]+)\]:(\d+)$")
 PATTERN_ONION = re.compile(r"^([abcdefghijklmnopqrstuvwxyz234567]{16}\.onion):(\d+)$")
-PATTERN_AGENT = re.compile(r"^(/bitcoinplus:2.6.(0|99)/|/bitcoinplus:2.7.(0|99)/)$")
+PATTERN_AGENT = re.compile(r"^(/kobocoin:2.0.(0|99)/|/kobocoin:2.9.(0|99)/)$")
 
 def parseline(line):
     sline = line.split()

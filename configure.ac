@@ -7,17 +7,17 @@ define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, false)
 define(_COPYRIGHT_YEAR, 2020)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[BitcoinPlus Core]])
-AC_INIT([BitcoinPlus Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/bitcoinplusorg/xbcwalletsource],[bitcoinplus],[https://www.bitcoinplus.org//])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Kobocoin Core]])
+AC_INIT([Kobocoin Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/kobocoinorg/xbcwalletsource],[kobocoin],[https://www.kobocoin.org//])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=bitcoinplusd
-BITCOIN_GUI_NAME=bitcoinplus-qt
-BITCOIN_CLI_NAME=bitcoinplus-cli
-BITCOIN_TX_NAME=bitcoinplus-tx
+BITCOIN_DAEMON_NAME=kobocoind
+BITCOIN_GUI_NAME=kobocoin-qt
+BITCOIN_CLI_NAME=kobocoin-cli
+BITCOIN_TX_NAME=kobocoin-tx
 
 AC_CANONICAL_HOST
 
@@ -229,7 +229,7 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build bitcoinplus-cli bitcoinplus-tx (default=yes)])],
+  [build kobocoin-cli kobocoin-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -241,7 +241,7 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build bitcoinplusd daemon (default=yes)])],
+  [build kobocoind daemon (default=yes)])],
   [build_bitcoind=$withval],
   [build_bitcoind=yes])
 
@@ -894,11 +894,11 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build bitcoinplusd])
+AC_MSG_CHECKING([whether to build kobocoind])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (bitcoinplus-cli bitcoinplus-tx)])
+AC_MSG_CHECKING([whether to build utils (kobocoin-cli kobocoin-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
