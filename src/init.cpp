@@ -69,6 +69,7 @@ static const bool DEFAULT_REST_ENABLE = false;
 static const bool DEFAULT_DISABLE_SAFEMODE = false;
 static const bool DEFAULT_STOPAFTERBLOCKIMPORT = false;
 
+unsigned int nMinerSleep;
 
 #if ENABLE_ZMQ
 static CZMQNotificationInterface* pzmqNotificationInterface = NULL;
@@ -1524,6 +1525,13 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     // ********************************************************* Step 12: finished
 
     SetRPCWarmupFinished();
+
+#ifdef ENABLE_WALLET
+    // Generate coins in the background
+    SetStaking(GetBoolArg("-staking", true));
+    threadGroup.create_thread(boost::bind(&BitcoinStaker, boost::cref(chainparams)));
+#endif
+
     uiInterface.InitMessage(_("Done loading"));
 
 #ifdef ENABLE_WALLET
