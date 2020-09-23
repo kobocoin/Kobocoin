@@ -4877,6 +4877,16 @@ uint32_t GetFetchFlags(CNode* pfrom, CBlockIndex* pprev, const Consensus::Params
     return nFetchFlags;
 }
 
+string setSubVerString(int version, string subVer) {
+    switch (version) {
+        case 60013:
+            return "/Mansa:2.1.0/";
+        case 80010:
+            return "/Mansa:2.9.0/";
+        default:
+            return SanitizeString(subVer);
+    }
+}
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, int64_t nTimeReceived, const CChainParams& chainparams)
 {
     LogPrint("net", "received: %s (%u bytes) peer=%d\n", SanitizeString(strCommand), vRecv.size(), pfrom->id);
@@ -4955,11 +4965,17 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         if (!vRecv.empty())
             vRecv >> addrFrom >> nNonce;
         if (!vRecv.empty()) {
-            vRecv >> LIMITED_STRING(pfrom->strSubVer, MAX_SUBVERSION_LENGTH);
-            pfrom->cleanSubVer = SanitizeString(pfrom->strSubVer);
+            try
+            {
+                vRecv >> LIMITED_STRING(pfrom->strSubVer, MAX_SUBVERSION_LENGTH);
+            }
+            catch (...) {}
         }
+        pfrom->cleanSubVer = setSubVerString(pfrom->nVersion, pfrom->strSubVer);
         if (!vRecv.empty()) {
             vRecv >> pfrom->nStartingHeight;
+            if (pfrom->nVersion < 80010)
+                pfrom->nStartingHeight = -1;
         }
         {
             LOCK(pfrom->cs_filter);
