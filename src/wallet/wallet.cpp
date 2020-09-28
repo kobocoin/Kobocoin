@@ -41,6 +41,7 @@ CFeeRate payTxFee(DEFAULT_TRANSACTION_FEE);
 unsigned int nTxConfirmTarget = DEFAULT_TX_CONFIRM_TARGET;
 bool bSpendZeroConfChange = DEFAULT_SPEND_ZEROCONF_CHANGE;
 bool fSendFreeTransactions = DEFAULT_SEND_FREE_TRANSACTIONS;
+bool fWalletUnlockStakingOnly = false;
 
 const char * DEFAULT_WALLET_DAT = "wallet.dat";
 const uint32_t BIP32_HARDENED_KEY_LIMIT = 0x80000000;
@@ -2694,16 +2695,24 @@ DBErrors CWallet::ZapWalletTx(std::vector<CWalletTx>& vWtx)
 
 bool CWallet::SetAddressBook(const CTxDestination& address, const string& strName, const string& strPurpose)
 {
+    bool fOwned;
     bool fUpdated = false;
     {
         LOCK(cs_wallet); // mapAddressBook
         std::map<CTxDestination, CAddressBookData>::iterator mi = mapAddressBook.find(address);
         fUpdated = mi != mapAddressBook.end();
         mapAddressBook[address].name = strName;
+        fOwned = ::IsMine(*this, address);
         if (!strPurpose.empty()) /* update purpose only if requested */
             mapAddressBook[address].purpose = strPurpose;
     }
-    NotifyAddressBookChanged(this, address, strName, ::IsMine(*this, address) != ISMINE_NO,
+
+    if (fOwned) {
+        const CBitcoinAddress& caddress = address;
+        SecureMsgWalletKeyChanged(caddress.ToString(), strName, (fUpdated ? CT_UPDATED : CT_NEW));
+    }
+
+    NotifyAddressBookChanged(this, address, strName, fOwned != ISMINE_NO,
                              strPurpose, (fUpdated ? CT_UPDATED : CT_NEW) );
     if (!fFileBacked)
         return false;
@@ -3700,6 +3709,19 @@ int64_t CWallet::GetNewMint() const
             nTotal += CWallet::GetCredit(*pcoin,ISMINE_SPENDABLE);
     }
     return nTotal;
+}
+
+bool CWallet::GetStakeWeightQuick(const int64_t& nTime, const int64_t& nValue, uint64_t& nWeight) {
+    CBigNum bnCoinDayWeight = 0;
+    int64_t nTimeWeight;
+
+    /* Stake weight reported is zero if time weight isn't positive */
+    nTimeWeight = GetWeight(nTime, (int64_t)GetTime());
+    if(nTimeWeight > 0)
+      /* Two divides to avoid overflows on 32-bit systems */
+      bnCoinDayWeight = (CBigNum(nValue) * nTimeWeight) / COIN / (24 * 60 * 60);
+    nWeight = bnCoinDayWeight.getuint64();
+    return(true);
 }
 
 void CWallet::GetStakeWeight(uint64_t& nMinWeight, uint64_t& nMaxWeight, uint64_t& nWeight)
