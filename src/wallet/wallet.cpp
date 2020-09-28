@@ -3688,6 +3688,7 @@ int CMerkleTx::GetBlocksToMaturity() const
     return max(0, (COINBASE_MATURITY+COINBASE_MATURITY_OFFSET) - GetDepthInMainChain());
 }
 
+#ifdef ENABLE_WALLET
 // Total coins staked (non-spendable until maturity)
 int64_t CWallet::GetStake() const
 {
@@ -4057,4 +4058,4 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     // Successfully generated coinstake
     return true;
 }
-
+#endif
