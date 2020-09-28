@@ -289,6 +289,8 @@ libbitcoin_consensus_a_SOURCES = \
   script/script_error.h \
   serialize.h \
   shavite.c \
+  shabal.c \
+  whirlpool.c \
   simd.c \
   skein.c \
   sph_blake.h \
