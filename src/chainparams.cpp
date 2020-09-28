@@ -74,7 +74,7 @@ public:
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 1421090888;
         consensus.nStakeCombineThreshold = 100 * COIN;
-        consensus.checkpointPubKey = "0436e4770019fd9e103ec777356be72fcbf50a6d29a09727633e382be8197596388c25f347642d37011ce2b790031c18b3656548274e2a1e67197011a0f4ca8708";
+        consensus.checkpointPubKey = "04011f5be18b59843bcb0bc09965ebf1d188b401d90c17dcfdfb07d8a97e56e6dd1c2ce164c542f73598eafe2bc39452813a5398c29a3abb13ebf1f8ef41ce13d9";
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 15120; // 95% of 20160
@@ -163,7 +163,7 @@ public:
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 1455825600;
         consensus.nStakeCombineThreshold = 100 * COIN;
-        consensus.checkpointPubKey = "04609db1502aeb6d5f193a640fffcfe88b720d47c961a78cc15210fc56a8e5ea5a06c02190d39076f96199ec788cc26ed2db76152dc9bd93bf18870236199b6bce";
+        consensus.checkpointPubKey = "043824867726f0c11fa2c4d62c1be60cf2bbaced609e17f099ca318b56addb3b7e47f38c983580b82e3b89fee9fab7c9dada97bc66bc4bc249f18a7a7fd139005a";
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
@@ -248,7 +248,7 @@ public:
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 0;
         consensus.nStakeCombineThreshold = 100 * COIN;
-        consensus.checkpointPubKey = "04609db1502aeb6d5f193a640fffcfe88b720d47c961a78cc15210fc56a8e5ea5a06c02190d39076f96199ec788cc26ed2db76152dc9bd93bf18870236199b6bce";
+        consensus.checkpointPubKey = "043824867726f0c11fa2c4d62c1be60cf2bbaced609e17f099ca318b56addb3b7e47f38c983580b82e3b89fee9fab7c9dada97bc66bc4bc249f18a7a7fd139005a";
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
