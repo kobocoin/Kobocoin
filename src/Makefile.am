@@ -291,6 +291,7 @@ libbitcoin_consensus_a_SOURCES = \
   shavite.c \
   shabal.c \
   whirlpool.c \
+  md_helper.c \
   simd.c \
   skein.c \
   sph_blake.h \
