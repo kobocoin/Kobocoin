@@ -3815,9 +3815,12 @@ static bool AcceptBlock(const CBlock& block, CValidationState& state, const CCha
     }
 
     // Check that the block satisfies synchronized checkpoint
-    if (!IsInitialBlockDownload() && !CheckSyncCheckpoint(block.GetHash(), pindex->pprev))
-        return state.Invalid(error("%s : rejected by synchronized checkpoint", __func__),
-                             REJECT_OBSOLETE, "bad-version");
+    if (!IsInitialBlockDownload() && !CheckSyncCheckpoint(pindex))
+    {
+        pindex->nStatus |= BLOCK_FAILED_VALID;
+        setDirtyBlockIndex.insert(pindex);
+        return error("%s: rejected by synchronized checkpoint", __func__);
+    }
 
     int nHeight = pindex->nHeight;
 
@@ -3879,10 +3882,6 @@ bool ProcessNewBlock(CValidationState& state, const CChainParams& chainparams, C
         if (!ret)
             return error("%s: AcceptBlock FAILED", __func__);
     }
-
-	// Ask for pending sync-checkpoint if any
-    if (!IsInitialBlockDownload())
-        AskForPendingSyncCheckpoint(pfrom);
 
     NotifyHeaderTip();
 
@@ -5229,9 +5228,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         int64_t nTimeOffset = nTime - GetTime();
         pfrom->nTimeOffset = nTimeOffset;
         AddTimeData(pfrom->addr, nTimeOffset);
-
-        if (!IsInitialBlockDownload())
-            AskForPendingSyncCheckpoint(pfrom);
     }
 
 
@@ -6257,7 +6253,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
     {
         CSyncCheckpoint checkpoint;
         vRecv >> checkpoint;
-        if (checkpoint.ProcessSyncCheckpoint(pfrom))
+        if (checkpoint.ProcessSyncCheckpoint())
         {
             // Relay
             pfrom->hashCheckpointKnown = checkpoint.hashCheckpoint;
