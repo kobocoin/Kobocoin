@@ -304,6 +304,8 @@ libbitcoin_consensus_a_SOURCES = \
   sph_shavite.h \
   sph_simd.h \
   sph_skein.h \
+  sph_shabal.h \
+  sph_whirlpool \
   sph_types.h \
   tinyformat.h \
   uint256.cpp \
