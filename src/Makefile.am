@@ -151,6 +151,7 @@ BITCOIN_CORE_H = \
   wallet/rpcwallet.h \
   wallet/wallet.h \
   wallet/walletdb.h \
+  xxhash/xxhash.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h\
   zmq/zmqnotificationinterface.h \
@@ -201,6 +202,7 @@ libbitcoin_server_a_SOURCES = \
   ui_interface.cpp \
   validationinterface.cpp \
   versionbits.cpp \
+  xxhash/xxhash.c \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
@@ -291,7 +293,6 @@ libbitcoin_consensus_a_SOURCES = \
   shavite.c \
   shabal.c \
   whirlpool.c \
-  md_helper.c \
   simd.c \
   skein.c \
   sph_blake.h \
@@ -308,7 +309,7 @@ libbitcoin_consensus_a_SOURCES = \
   sph_simd.h \
   sph_skein.h \
   sph_shabal.h \
-  sph_whirlpool \
+  sph_whirlpool.h \
   sph_types.h \
   tinyformat.h \
   uint256.cpp \
