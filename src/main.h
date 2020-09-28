@@ -536,7 +536,7 @@ static const unsigned int REJECT_CONFLICT = 0x102;
 // Ratio of group interval length between the last group and the first group
 static const int MODIFIER_INTERVAL_RATIO = 3;
 
-static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.20 * COIN;	// 20% annual interest
+static const int64_t MAX_MINT_PROOF_OF_STAKE = 0.1 * COIN;	// 10% annual interest
 
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
 bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge);
