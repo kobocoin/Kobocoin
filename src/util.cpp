@@ -435,7 +435,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "kobocoin";
+    const char* pszModule = "Kobocoin";
 #endif
     if (pex)
         return strprintf(
@@ -461,7 +461,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Unix: ~/.Kobocoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "kobocoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Kobocoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -471,10 +471,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/kobocoin";
+    return pathRet / "Library/Application Support/Kobocoin";
 #else
     // Unix
-    return pathRet / ".kobocoin";
+    return pathRet / ".Kobocoin";
 #endif
 #endif
 }

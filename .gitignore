@@ -85,6 +85,8 @@ kobocoin-Qt.app
 *.creator
 *.files
 *.includes
+*.cxxflags
+
 # Unit-tests
 Makefile.test
 bitcoin-qt_test
