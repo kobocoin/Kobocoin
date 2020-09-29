@@ -1,3 +1,5 @@
+# Maintenance test (mammix2)
+
 ## Kobocoin
 ### A micropayment system and digitial currency similar to Bitcoin. 
 ### Kobocoin is PoS, optimised for mobile phone usage, and has an African heritage.
