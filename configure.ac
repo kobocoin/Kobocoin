@@ -941,10 +941,6 @@ else
   AC_MSG_RESULT(no)
 fi
 
-else
-  AC_MSG_RESULT(no)
-fi
-
 dnl enable upnp support
 AC_MSG_CHECKING([whether to build with support for UPnP])
 if test x$have_miniupnpc = xno; then
