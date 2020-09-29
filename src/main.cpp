@@ -53,7 +53,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Kobocoin cannot be compiled without assertions."
+# error "kobocoin cannot be compiled without assertions."
 #endif
 
 /**

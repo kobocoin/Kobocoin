@@ -133,7 +133,7 @@ bool AppInit(int argc, char* argv[])
         fDaemon = GetBoolArg("-daemon", false);
         if (fDaemon)
         {
-            fprintf(stdout, "Kobocoin server starting\n");
+            fprintf(stdout, "kobocoin server starting\n");
 
             // Daemonize
             pid_t pid = fork();

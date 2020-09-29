@@ -132,7 +132,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Kobocoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a kobocoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -150,7 +150,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no Kobocoin: URI
+    // return if URI is not valid or is no kobocoin: URI
     if(!uri.isValid() || uri.scheme() != QString("bitcoin"))
         return false;
 
@@ -211,13 +211,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert Kobocoin:// to Kobocoin:
+    // Convert kobocoin:// to kobocoin:
     //
-    //    Cannot handle this later, because Kobocoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because kobocoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("Kobocoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("kobocoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 14, "Kobocoin:");
+        uri.replace(0, 14, "kobocoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -225,7 +225,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("Kobocoin:%1").arg(info.address);
+    QString ret = QString("kobocoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -610,10 +610,10 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Kobocoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "kobocoin.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Kobocoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Kobocoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "kobocoin (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("kobocoin (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -754,9 +754,9 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Kobocoin\n";
+            optionFile << "Name=kobocoin\n";
         else
-            optionFile << strprintf("Name=Kobocoin (%s)\n", chain);
+            optionFile << strprintf("Name=kobocoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";

@@ -48,9 +48,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "Kobocoin"
+#define QAPP_ORG_NAME "kobocoin"
 #define QAPP_ORG_DOMAIN "kobocoin.com"
-#define QAPP_APP_NAME_DEFAULT "Kobocoin-Qt"
-#define QAPP_APP_NAME_TESTNET "Kobocoin-Qt-testnet"
+#define QAPP_APP_NAME_DEFAULT "kobocoin-Qt"
+#define QAPP_APP_NAME_TESTNET "kobocoin-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

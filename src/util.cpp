@@ -435,7 +435,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "Kobocoin";
+    const char* pszModule = "kobocoin";
 #endif
     if (pex)
         return strprintf(
@@ -455,13 +455,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Kobocoin
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Kobocoin
-    // Mac: ~/Library/Application Support/Kobocoin
-    // Unix: ~/.Kobocoin
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\kobocoin
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\kobocoin
+    // Mac: ~/Library/Application Support/kobocoin
+    // Unix: ~/.kobocoin
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Kobocoin";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "kobocoin";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -471,10 +471,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Kobocoin";
+    return pathRet / "Library/Application Support/kobocoin";
 #else
     // Unix
-    return pathRet / ".Kobocoin";
+    return pathRet / ".kobocoin";
 #endif
 #endif
 }
