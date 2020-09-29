@@ -100,7 +100,7 @@ namespace boost {
 using namespace std;
 
 const char * const BITCOIN_CONF_FILENAME = "kobocoin.conf";
-const char * const BITCOIN_PID_FILENAME = "kobocoin.pid";
+const char * const BITCOIN_PID_FILENAME = "kobocoind.pid";
 
 map<string, string> mapArgs;
 map<string, vector<string> > mapMultiArgs;
