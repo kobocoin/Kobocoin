@@ -37,7 +37,7 @@ set<pair<COutPoint, unsigned int> > setStakeSeen;
 
 CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // "standard" scrypt target limit for proof of work, results with 0,000244140625 proof-of-work difficulty
 CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
-CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
+CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 20);
 
 unsigned int nTargetSpacing = 60; //  seconds
 unsigned int nStakeMinAge = 60 * 60 * 24 * 1; // 24 hour
@@ -2453,10 +2453,11 @@ bool LoadBlockIndex(bool fAllowNew)
 
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xa1;
-        pchMessageStart[1] = 0xa0;
-        pchMessageStart[2] = 0xa2;
-        pchMessageStart[3] = 0xa3;
+        pchMessageStart[0] = 0x71;
+        pchMessageStart[1] = 0x32;
+        pchMessageStart[2] = 0x2a;
+        pchMessageStart[3] = 0x0f;
+
 
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 0x0000ffff PoW base target is fixed in testnet
         nStakeMinAge = 20 * 60; // test net min age is 20 min
@@ -2495,8 +2496,8 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nNonce   = 219702;
 		if(fTestNet)
         {
-			block.nTime = 1421090889;
-            block.nNonce   = 77302;
+			block.nTime = 1421090888;
+            block.nNonce   = 219702;
         }
         if (false  && (block.GetHash() != hashGenesisBlock)) {
 
