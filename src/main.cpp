@@ -5049,7 +5049,7 @@ uint32_t GetFetchFlags(CNode* pfrom, CBlockIndex* pprev, const Consensus::Params
 string setSubVerString(int version, string subVer) {
     switch (version) {
         case 60013:
-            return "/Mansa:2.1.0/";
+            return "/Satoshi:2.1.0/";
         case 80010:
             return "/Mansa:2.9.0/";
         default:

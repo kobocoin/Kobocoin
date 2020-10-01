@@ -68,7 +68,7 @@ unsigned int static GetNextWorkRequired_legacy(const CBlockIndex* pindexLast, co
  {
      const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
 
-     if(pindexLast->nHeight < 200)
+     if (pindexLast == nullptr)
          return bnPowLimit.GetCompact();
 
      const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, fProofOfStake);
@@ -100,9 +100,7 @@ unsigned int static GetNextWorkRequired_legacy(const CBlockIndex* pindexLast, co
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, bool fProofOfStake, const Consensus::Params& params)
 {
- //   if(pindexLast->nHeight < 1)
- //       return GetNextWorkRequired_legacy(pindexLast, params);
-
+    if(pindexLast->nHeight + 1 )
     return GetNextWorkRequired_DGW(pindexLast, fProofOfStake, params);
 }
 
