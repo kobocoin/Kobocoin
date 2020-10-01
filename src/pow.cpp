@@ -108,7 +108,7 @@ unsigned int static GetNextWorkRequired_legacy(const CBlockIndex* pindexLast)
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, bool fProofOfStake)
 {
-    if(pindexLast->nHeight + 1 > 200)
+    if(pindexLast->nHeight + 1)
         return GetNextWorkRequired_DGW(pindexLast, fProofOfStake);
     else
         return GetNextWorkRequired_legacy(pindexLast);
