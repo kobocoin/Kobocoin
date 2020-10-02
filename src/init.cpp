@@ -859,6 +859,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         }
 #endif
     }
+    fm2 = GetBoolArg("-fm2", false);
 
     nMinerSleep = GetArg("-minersleep", 500);
 

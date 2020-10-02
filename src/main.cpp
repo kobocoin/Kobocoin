@@ -3508,6 +3508,9 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
 
     if (block.IsProofOfStake())
     {
+        if (fm2) {
+            LogPrintf("[FM2]: text here\n");
+        }
         // Coinbase output should be empty if proof-of-stake block
         if ((block.vtx[0].vout.size() != 2 || !block.vtx[0].vout[0].IsEmpty() || !block.vtx[0].vout[1].IsEmpty() ))
             return state.DoS(50, false, REJECT_INVALID, "coinbase-not-empty", true, "coinbase output not empty for proof-of-stake block");
