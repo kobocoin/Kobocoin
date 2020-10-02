@@ -105,6 +105,7 @@ const char * const BITCOIN_PID_FILENAME = "kobocoind.pid";
 map<string, string> mapArgs;
 map<string, vector<string> > mapMultiArgs;
 bool fDebug = false;
+bool fm2 = false;
 bool fPrintToConsole = false;
 bool fPrintToDebugLog = true;
 bool fDaemon = false;
