@@ -754,7 +754,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         }
         else if (!addr.IsValid()) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid kobocoin address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Kobocoin address"));
         }
         else // Valid address
         {

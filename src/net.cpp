@@ -1410,7 +1410,7 @@ void ThreadMapPort()
             }
         }
 
-        std::string strDesc = "kobocoin " + FormatFullVersion();
+        std::string strDesc = "Kobocoin " + FormatFullVersion();
 
         try {
             while (true) {

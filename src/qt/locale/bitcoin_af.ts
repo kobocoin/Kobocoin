@@ -158,8 +158,8 @@
         <translation>Besig met herindeksering van blokke op hardeskyf...</translation>
     </message>
     <message>
-        <source>Send coins to a kobocoin address</source>
-        <translation>Stuur munte na 'n kobocoin adres</translation>
+        <source>Send coins to a Kobocoin address</source>
+        <translation>Stuur munte na 'n Kobocoin adres</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -170,8 +170,8 @@
         <translation>Verander die wagwoord wat ek vir kodifikasie van my beursie gebruik</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Kodifiseer die private sleutes wat aan jou beursie gekoppel is.</translation>
     </message>
     <message>
-        <source>Sign messages with your kobocoin addresses to prove you own them</source>
-        <translation>Onderteken boodskappe met u kobocoin adresse om u eienaarskap te bewys</translation>
+        <source>Sign messages with your Kobocoin addresses to prove you own them</source>
+        <translation>Onderteken boodskappe met u Kobocoin adresse om u eienaarskap te bewys</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified kobocoin addresses</source>
-        <translation>Verifieër boodskappe om seker te maak dat dit met die gespesifiseerde kobocoin adresse</translation>
+        <source>Verify messages to ensure they were signed with specified Kobocoin addresses</source>
+        <translation>Verifieër boodskappe om seker te maak dat dit met die gespesifiseerde Kobocoin adresse</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -210,8 +210,8 @@
         <translation>Orebalk</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and kobocoin: URIs)</source>
-        <translation>Versoek betalings (genereer QR-kodes en kobocoin: URI's)</translation>
+        <source>Request payments (generates QR codes and Kobocoin: URIs)</source>
+        <translation>Versoek betalings (genereer QR-kodes en Kobocoin: URI's)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -222,8 +222,8 @@
         <translation>Vertoon die lys van gebruikte ontvangers-adresse en etikette</translation>
     </message>
     <message>
-        <source>Open a kobocoin: URI or payment request</source>
-        <translation>Skep 'n kobocoin: URI of betalingsversoek</translation>
+        <source>Open a Kobocoin: URI or payment request</source>
+        <translation>Skep 'n Kobocoin: URI of betalingsversoek</translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -710,8 +710,8 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>kobocoin Core</source>
-        <translation>kobocoin Kern</translation>
+        <source>Kobocoin Core</source>
+        <translation>Kobocoin Kern</translation>
     </message>
     <message>
         <source>Information</source>

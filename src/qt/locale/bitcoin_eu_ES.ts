@@ -103,7 +103,7 @@
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Erakutsi kobocoin-i buruzko informazioa</translation>
+        <translation>Erakutsi Kobocoin-i buruzko informazioa</translation>
     </message>
     <message>
         <source>&amp;Options...</source>

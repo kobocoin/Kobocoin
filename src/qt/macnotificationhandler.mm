@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.kobocoin.kobocoin-Qt";
+        return @"org.Kobocoin.Kobocoin-Qt";
     } else {
         return [self __bundleIdentifier];
     }

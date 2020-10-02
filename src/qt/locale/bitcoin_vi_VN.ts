@@ -166,8 +166,8 @@
         <translation>Đánh chỉ số (indexing) lại các khối (blocks) trên ổ đĩa ...</translation>
     </message>
     <message>
-        <source>Send coins to a kobocoin address</source>
-        <translation>Gửi coins đến tài khoản kobocoin</translation>
+        <source>Send coins to a Kobocoin address</source>
+        <translation>Gửi coins đến tài khoản Kobocoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -186,8 +186,8 @@
         <translation>&amp;Tin nhắn xác thực</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -214,12 +214,12 @@
         <translation>Mã hoá các khoá bí mật trong Ví của bạn.</translation>
     </message>
     <message>
-        <source>Sign messages with your kobocoin addresses to prove you own them</source>
-        <translation>Dùng địa chỉ kobocoin của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
+        <source>Sign messages with your Kobocoin addresses to prove you own them</source>
+        <translation>Dùng địa chỉ Kobocoin của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified kobocoin addresses</source>
-        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ kobocoin xác định.</translation>
+        <source>Verify messages to ensure they were signed with specified Kobocoin addresses</source>
+        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ Kobocoin xác định.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -238,8 +238,8 @@
         <translation>Thanh công cụ (toolbar)</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and kobocoin: URIs)</source>
-        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ kobocoin: URLs)</translation>
+        <source>Request payments (generates QR codes and Kobocoin: URIs)</source>
+        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ Kobocoin: URLs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -250,8 +250,8 @@
         <translation>Hiện thỉ danh sách các địa chỉ và nhãn đã dùng để nhận.</translation>
     </message>
     <message>
-        <source>Open a kobocoin: URI or payment request</source>
-        <translation>Mở kobocoin:URL hoặc yêu cầu thanh toán</translation>
+        <source>Open a Kobocoin: URI or payment request</source>
+        <translation>Mở Kobocoin:URL hoặc yêu cầu thanh toán</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -533,8 +533,8 @@
         <translation>Ví</translation>
     </message>
     <message>
-        <source>Connect to the kobocoin network through a SOCKS5 proxy.</source>
-        <translation>Kết nối đến máy chủ kobocoin thông qua SOCKS5 proxy.</translation>
+        <source>Connect to the Kobocoin network through a SOCKS5 proxy.</source>
+        <translation>Kết nối đến máy chủ Kobocoin thông qua SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1008,8 +1008,8 @@
         <translation>Lựa chọn:</translation>
     </message>
     <message>
-        <source>kobocoin Core</source>
-        <translation>kobocoin Core</translation>
+        <source>Kobocoin Core</source>
+        <translation>Kobocoin Core</translation>
     </message>
     <message>
         <source>(default: %u)</source>

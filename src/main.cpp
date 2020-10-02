@@ -53,7 +53,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "kobocoin cannot be compiled without assertions."
+# error "Kobocoin cannot be compiled without assertions."
 #endif
 
 /**
@@ -118,7 +118,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "kobocoin Signed Message:\n";
+const string strMessageMagic = "Kobocoin Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -3508,9 +3508,6 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
 
     if (block.IsProofOfStake())
     {
-        if (fm2) {
-            LogPrintf("[FM2]: text here\n");
-        }
         // Coinbase output should be empty if proof-of-stake block
         if ((block.vtx[0].vout.size() != 2 || !block.vtx[0].vout[0].IsEmpty() || !block.vtx[0].vout[1].IsEmpty() ))
             return state.DoS(50, false, REJECT_INVALID, "coinbase-not-empty", true, "coinbase output not empty for proof-of-stake block");

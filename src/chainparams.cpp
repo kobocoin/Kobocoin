@@ -114,8 +114,8 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x3519d54cd3dddf456888921b8e97c43ef6f6204b95683a45f28437d4c44153d3"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.push_back(CDNSSeedData("ns1.kobocoin.com", "seed1.kobocoin.com", false));
-        vSeeds.push_back(CDNSSeedData("ns1.kobocoin.com", "seed2.kobocoin.com", false));
+        vSeeds.push_back(CDNSSeedData("ns1.Kobocoin.com", "seed1.Kobocoin.com", false));
+        vSeeds.push_back(CDNSSeedData("ns1.Kobocoin.com", "seed2.Kobocoin.com", false));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,35);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,28);
@@ -199,7 +199,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("ns1.kobocoin.com", "test-seed1.kobocoin.com", false));
+        vSeeds.push_back(CDNSSeedData("ns1.Kobocoin.com", "test-seed1.Kobocoin.com", false));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);

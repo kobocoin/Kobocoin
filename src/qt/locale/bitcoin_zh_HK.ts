@@ -154,8 +154,8 @@
         <translation>正在為磁碟區塊重建索引...</translation>
     </message>
     <message>
-        <source>Send coins to a kobocoin address</source>
-        <translation>付款至一個 kobocoin 位址</translation>
+        <source>Send coins to a Kobocoin address</source>
+        <translation>付款至一個 Kobocoin 位址</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -178,8 +178,8 @@
         <translation>驗證訊息... &amp;V</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>

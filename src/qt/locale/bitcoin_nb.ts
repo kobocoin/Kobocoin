@@ -166,8 +166,8 @@
         <translation>Reindekserer blokker på harddisk...</translation>
     </message>
     <message>
-        <source>Send coins to a kobocoin address</source>
-        <translation>Send til en kobocoin-adresse</translation>
+        <source>Send coins to a Kobocoin address</source>
+        <translation>Send til en Kobocoin-adresse</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -190,8 +190,8 @@
         <translation>&amp;Verifiser melding...</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -218,12 +218,12 @@
         <translation>Krypter de private nøklene som tilhører lommeboken din</translation>
     </message>
     <message>
-        <source>Sign messages with your kobocoin addresses to prove you own them</source>
-        <translation>Signer en melding med kobocoin-adressene dine for å bevise at du eier dem</translation>
+        <source>Sign messages with your Kobocoin addresses to prove you own them</source>
+        <translation>Signer en melding med Kobocoin-adressene dine for å bevise at du eier dem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified kobocoin addresses</source>
-        <translation>Bekreft meldinger for å være sikker på at de ble signert av en angitt kobocoin-adresse</translation>
+        <source>Verify messages to ensure they were signed with specified Kobocoin addresses</source>
+        <translation>Bekreft meldinger for å være sikker på at de ble signert av en angitt Kobocoin-adresse</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -242,8 +242,8 @@
         <translation>Verktøylinje for faner</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and kobocoin: URIs)</source>
-        <translation>Forespør betalinger (genererer QR-koder og kobocoin: URIer)</translation>
+        <source>Request payments (generates QR codes and Kobocoin: URIs)</source>
+        <translation>Forespør betalinger (genererer QR-koder og Kobocoin: URIer)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -254,16 +254,16 @@
         <translation>Vis listen over bruke mottaksadresser og merkelapper</translation>
     </message>
     <message>
-        <source>Open a kobocoin: URI or payment request</source>
-        <translation>Åpne en kobocoin: URI eller betalingsetterspørring</translation>
+        <source>Open a Kobocoin: URI or payment request</source>
+        <translation>Åpne en Kobocoin: URI eller betalingsetterspørring</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Kommandolinjevalg</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to kobocoin network</source>
-        <translation><numerusform>%n aktiv forbindelse til kobocoin-nettverket</numerusform><numerusform>%n aktive forbindelser til kobocoin-nettverket</numerusform></translation>
+        <source>%n active connection(s) to Kobocoin network</source>
+        <translation><numerusform>%n aktiv forbindelse til Kobocoin-nettverket</numerusform><numerusform>%n aktive forbindelser til Kobocoin-nettverket</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
@@ -693,16 +693,16 @@
         <translation>&amp;Bruk ubekreftet veksel</translation>
     </message>
     <message>
-        <source>Automatically open the kobocoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Åpne automatisk kobocoin klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
+        <source>Automatically open the Kobocoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Åpne automatisk Kobocoin klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Sett opp port ved hjelp av &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the kobocoin network through a SOCKS5 proxy.</source>
-        <translation>Koble til kobocoin-nettverket gjennom en SOCKS5 proxy.</translation>
+        <source>Connect to the Kobocoin network through a SOCKS5 proxy.</source>
+        <translation>Koble til Kobocoin-nettverket gjennom en SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -741,8 +741,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the kobocoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Koble til kobocoin-nettverket gjennom en separat SOCKS5 mellomtjener for Tor skjulte tjenester.</translation>
+        <source>Connect to the Kobocoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Koble til Kobocoin-nettverket gjennom en separat SOCKS5 mellomtjener for Tor skjulte tjenester.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -782,7 +782,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av kobocoin.</translation>
+        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av Kobocoin.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -832,8 +832,8 @@
         <translation>Skjema</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the kobocoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med kobocoin-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Kobocoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med Kobocoin-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -925,8 +925,8 @@
         <translation>Beløp</translation>
     </message>
     <message>
-        <source>Enter a kobocoin address (e.g. %1)</source>
-        <translation>Oppgi en kobocoin-adresse (f.eks. %1)</translation>
+        <source>Enter a Kobocoin address (e.g. %1)</source>
+        <translation>Oppgi en Kobocoin-adresse (f.eks. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1262,8 +1262,8 @@
         <translation>Gj&amp;enbruk en eksisterende mottaksadresse (ikke anbefalt)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the kobocoin network.</source>
-        <translation>En valgfri melding å tilknytte betalingsetterspørringen, som vil bli vist når forespørselen er åpnet. Meldingen vil ikke bli sendt med betalingen over kobocoin-nettverket.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Kobocoin network.</source>
+        <translation>En valgfri melding å tilknytte betalingsetterspørringen, som vil bli vist når forespørselen er åpnet. Meldingen vil ikke bli sendt med betalingen over Kobocoin-nettverket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1336,7 +1336,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send kobocoin</translation>
+        <translation>Send Kobocoin</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1419,8 +1419,8 @@
         <translation>minstebeløp</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for kobocoin transactions than the network can process.</source>
-        <translation>Betaling av bare minimumsavgiften går helt fint så lenge det er mindre transaksjonsvolum enn plass i blokkene. Men vær klar over at dette kan ende opp i en transaksjon som aldri blir bekreftet når det er mer etterspørsel etter kobocoin-transaksjoner enn nettverket kan behandle.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for Kobocoin transactions than the network can process.</source>
+        <translation>Betaling av bare minimumsavgiften går helt fint så lenge det er mindre transaksjonsvolum enn plass i blokkene. Men vær klar over at dette kan ende opp i en transaksjon som aldri blir bekreftet når det er mer etterspørsel etter Kobocoin-transaksjoner enn nettverket kan behandle.</translation>
     </message>
     <message>
         <source>(read the tooltip)</source>
@@ -1506,8 +1506,8 @@
         <translation>Dette er en normal betaling.</translation>
     </message>
     <message>
-        <source>The kobocoin address to send the payment to</source>
-        <translation>kobocoin-adressen betalingen skal sendes til</translation>
+        <source>The Kobocoin address to send the payment to</source>
+        <translation>Kobocoin-adressen betalingen skal sendes til</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1526,8 +1526,8 @@
         <translation>Fjern denne oppføringen</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less kobocoin than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre kobocoin enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less Kobocoin than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre Kobocoin enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -1550,8 +1550,8 @@
         <translation>Skriv inn en merkelapp for denne adressen for å legge den til listen av brukte adresser</translation>
     </message>
     <message>
-        <source>A message that was attached to the kobocoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the kobocoin network.</source>
-        <translation>En melding som var tilknyttet kobocoinen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over kobocoin-nettverket.</translation>
+        <source>A message that was attached to the Kobocoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Kobocoin network.</source>
+        <translation>En melding som var tilknyttet Kobocoinen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Kobocoin-nettverket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1583,12 +1583,12 @@
         <translation>&amp;Signer Melding</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive kobocoin sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta kobocoin sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive Kobocoin sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta Kobocoin sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
     </message>
     <message>
-        <source>The kobocoin address to sign the message with</source>
-        <translation>kobocoin-adressen meldingen skal signeres med</translation>
+        <source>The Kobocoin address to sign the message with</source>
+        <translation>Kobocoin-adressen meldingen skal signeres med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1619,8 +1619,8 @@
         <translation>Kopier valgt signatur til utklippstavle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this kobocoin address</source>
-        <translation>Signer meldingen for å bevise at du eier denne kobocoin-adressen</translation>
+        <source>Sign the message to prove you own this Kobocoin address</source>
+        <translation>Signer meldingen for å bevise at du eier denne Kobocoin-adressen</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1643,12 +1643,12 @@
         <translation>Skriv inn mottakerens adresse, melding (forsikre deg om at du kopier linjeskift, mellomrom, faner osv. nøyaktig) og underskrift nedenfor for å bekrefte meldingen. Vær forsiktig så du ikke leser mer ut av signaturen enn hva som er i den signerte meldingen i seg selv, for å unngå å bli lurt av et man-in-the-middle-angrep. Merk at dette bare beviser at den som signerer kan motta med adressen, dette beviser ikke hvem som har sendt transaksjoner!</translation>
     </message>
     <message>
-        <source>The kobocoin address the message was signed with</source>
-        <translation>kobocoin-adressen meldingen ble signert med</translation>
+        <source>The Kobocoin address the message was signed with</source>
+        <translation>Kobocoin-adressen meldingen ble signert med</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified kobocoin address</source>
-        <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte kobocoin-adressen</translation>
+        <source>Verify the message to ensure it was signed with the specified Kobocoin address</source>
+        <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte Kobocoin-adressen</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1772,8 +1772,8 @@
         <translation>Ta imot tilkoblinger fra utsiden (standardverdi: 1 hvis uten -proxy eller -connect)</translation>
     </message>
     <message>
-        <source>kobocoin Core</source>
-        <translation>kobocoin Core</translation>
+        <source>Kobocoin Core</source>
+        <translation>Kobocoin Core</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

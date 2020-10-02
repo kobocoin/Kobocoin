@@ -90,8 +90,8 @@
         <translation>&amp;செய்தியை சரிசெய்...</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -714,8 +714,8 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>kobocoin Core</source>
-        <translation>kobocoin மையம்</translation>
+        <source>Kobocoin Core</source>
+        <translation>Kobocoin மையம்</translation>
     </message>
     <message>
         <source>(default: %u)</source>

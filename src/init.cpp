@@ -487,8 +487,8 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/kobocoin/kobocoin>";
-    const std::string URL_WEBSITE = "<https://kobocoin.com//>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/Kobocoin/Kobocoin>";
+    const std::string URL_WEBSITE = "<https://Kobocoin.com//>";
     // todo: remove urls from translations on next change
     return CopyrightHolders(strprintf(_("Copyright (C) %i-%i"), 2014, COPYRIGHT_YEAR) + " ") + "\n" +
            "\n" +
@@ -780,7 +780,7 @@ void InitLogging()
     fLogIPs = GetBoolArg("-logips", DEFAULT_LOGIPS);
 
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("kobocoin version %s\n", FormatFullVersion());
+    LogPrintf("Kobocoin version %s\n", FormatFullVersion());
 }
 
 /** Initialize bitcoin.

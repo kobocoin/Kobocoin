@@ -262,7 +262,7 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>kobocoin Core</source>
+        <source>Kobocoin Core</source>
         <translation>Биткойн ядро</translation>
     </message>
     </context>

@@ -94,8 +94,8 @@
         <translation>Ndrysho frazkalimin e përdorur per enkriptimin e portofolit</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -438,8 +438,8 @@
         <translation>Opsionet:</translation>
     </message>
     <message>
-        <source>kobocoin Core</source>
-        <translation>Berthama kobocoin</translation>
+        <source>Kobocoin Core</source>
+        <translation>Berthama Kobocoin</translation>
     </message>
     <message>
         <source>Information</source>

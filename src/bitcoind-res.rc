@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "kobocoin"
-            VALUE "FileDescription",    "kobocoind (Bitcoin Plus node with a JSON-RPC server)"
+            VALUE "CompanyName",        "Kobocoin"
+            VALUE "FileDescription",    "Kobocoind (Bitcoin Plus node with a JSON-RPC server)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "kobocoind"
+            VALUE "InternalName",       "Kobocoind"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "kobocoind.exe"
-            VALUE "ProductName",        "kobocoind"
+            VALUE "OriginalFilename",   "Kobocoind.exe"
+            VALUE "ProductName",        "Kobocoind"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

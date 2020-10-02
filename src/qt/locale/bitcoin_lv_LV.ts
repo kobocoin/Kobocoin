@@ -142,8 +142,8 @@
         <translation>Bloku reindeksēšana no diska...</translation>
     </message>
     <message>
-        <source>Send coins to a kobocoin address</source>
-        <translation>Nosūtīt bitkoinus uz kobocoin adresi</translation>
+        <source>Send coins to a Kobocoin address</source>
+        <translation>Nosūtīt bitkoinus uz Kobocoin adresi</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Šifrēt privātās atslēgas kuras pieder tavam maciņam</translation>
     </message>
     <message>
-        <source>Sign messages with your kobocoin addresses to prove you own them</source>
-        <translation>Parakstīt ziņojumus ar savām kobocoin adresēm lai pierādītu ka tās pieder tev</translation>
+        <source>Sign messages with your Kobocoin addresses to prove you own them</source>
+        <translation>Parakstīt ziņojumus ar savām Kobocoin adresēm lai pierādītu ka tās pieder tev</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified kobocoin addresses</source>
-        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām kobocoin adresēm</translation>
+        <source>Verify messages to ensure they were signed with specified Kobocoin addresses</source>
+        <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Kobocoin adresēm</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -218,12 +218,12 @@
         <translation>Ciļņu rīkjosla</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and kobocoin: URIs)</source>
-        <translation>Pieprasīt maksājumus (izveido QR kodu un kobocoin: URIs)</translation>
+        <source>Request payments (generates QR codes and Kobocoin: URIs)</source>
+        <translation>Pieprasīt maksājumus (izveido QR kodu un Kobocoin: URIs)</translation>
     </message>
     <message>
-        <source>Open a kobocoin: URI or payment request</source>
-        <translation>Atvērt kobocoin URI vai maksājuma pieprasījumu</translation>
+        <source>Open a Kobocoin: URI or payment request</source>
+        <translation>Atvērt Kobocoin URI vai maksājuma pieprasījumu</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -504,15 +504,15 @@
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Ieslēgt kobocoin &amp;kontroles funkcijas</translation>
+        <translation>Ieslēgt Kobocoin &amp;kontroles funkcijas</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Tērēt neapstiprinātu atlikumu</translation>
     </message>
     <message>
-        <source>Automatically open the kobocoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Uz rūtera automātiski atvērt kobocoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+        <source>Automatically open the Kobocoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Uz rūtera automātiski atvērt Kobocoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -564,7 +564,7 @@
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Vai rādīt kobocoin kontroles funkcijas vai nē.</translation>
+        <translation>Vai rādīt Kobocoin kontroles funkcijas vai nē.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -598,8 +598,8 @@
         <translation>Forma</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the kobocoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar kobocoin tīklu, taču šis process vēl nav beidzies.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Kobocoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Kobocoin tīklu, taču šis process vēl nav beidzies.</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -850,7 +850,7 @@
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>kobocoin Kontroles Funkcijas</translation>
+        <translation>Kobocoin Kontroles Funkcijas</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -1029,8 +1029,8 @@
         <translation>Kopēt parakstu uz sistēmas starpliktuvi</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this kobocoin address</source>
-        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs kobocoin adreses īpašnieks.</translation>
+        <source>Sign the message to prove you own this Kobocoin address</source>
+        <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Kobocoin adreses īpašnieks.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1126,8 +1126,8 @@
         <translation>Darbināt fonā kā servisu un pieņemt komandas</translation>
     </message>
     <message>
-        <source>kobocoin Core</source>
-        <translation>kobocoin Core</translation>
+        <source>Kobocoin Core</source>
+        <translation>Kobocoin Core</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

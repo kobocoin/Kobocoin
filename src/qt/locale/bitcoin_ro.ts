@@ -142,8 +142,8 @@
         <translation>Deschide &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a kobocoin address</source>
-        <translation>Trimite monedele către o adresă kobocoin</translation>
+        <source>Send coins to a Kobocoin address</source>
+        <translation>Trimite monedele către o adresă Kobocoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Criptează cheile private care aparțin portofelului tău.</translation>
     </message>
     <message>
-        <source>Sign messages with your kobocoin addresses to prove you own them</source>
-        <translation>Semnează mesajele cu adresa ta de kobocoin pentru a face dovada că îți aparțin.</translation>
+        <source>Sign messages with your Kobocoin addresses to prove you own them</source>
+        <translation>Semnează mesajele cu adresa ta de Kobocoin pentru a face dovada că îți aparțin.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified kobocoin addresses</source>
-        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de kobocoin specificată.</translation>
+        <source>Verify messages to ensure they were signed with specified Kobocoin addresses</source>
+        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Kobocoin specificată.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -214,12 +214,12 @@
         <translation>&amp;Ajutor</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and kobocoin: URIs)</source>
-        <translation>Cerere plată (generează coduri QR și kobocoin: URIs)</translation>
+        <source>Request payments (generates QR codes and Kobocoin: URIs)</source>
+        <translation>Cerere plată (generează coduri QR și Kobocoin: URIs)</translation>
     </message>
     <message>
-        <source>Open a kobocoin: URI or payment request</source>
-        <translation>Deschide un kobocoin: URI sau cerere de plată</translation>
+        <source>Open a Kobocoin: URI or payment request</source>
+        <translation>Deschide un Kobocoin: URI sau cerere de plată</translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -746,8 +746,8 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>kobocoin Core</source>
-        <translation>kobocoin Core</translation>
+        <source>Kobocoin Core</source>
+        <translation>Kobocoin Core</translation>
     </message>
     <message>
         <source>Information</source>

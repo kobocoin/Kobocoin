@@ -166,8 +166,8 @@
         <translation>Réindexer les blocs sur le disque...</translation>
     </message>
     <message>
-        <source>Send coins to a kobocoin address</source>
-        <translation>Envoyer des pièces à une adresse kobocoin</translation>
+        <source>Send coins to a Kobocoin address</source>
+        <translation>Envoyer des pièces à une adresse Kobocoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -190,8 +190,8 @@
         <translation>&amp;Vérification du message</translation>
     </message>
     <message>
-        <source>kobocoin</source>
-        <translation>kobocoin</translation>
+        <source>Kobocoin</source>
+        <translation>Kobocoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -218,8 +218,8 @@
         <translation>Crypter les clé privées qui appartiennent votre portefeuille</translation>
     </message>
     <message>
-        <source>Sign messages with your kobocoin addresses to prove you own them</source>
-        <translation>Signer vos messages avec vos adresses kobocoin pour prouver que vous les détenez</translation>
+        <source>Sign messages with your Kobocoin addresses to prove you own them</source>
+        <translation>Signer vos messages avec vos adresses Kobocoin pour prouver que vous les détenez</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -238,24 +238,24 @@
         <translation>Barre d'outils des onglets</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and kobocoin: URIs)</source>
-        <translation>Demander des paiements (générer QR codes et kobocoin: URIs)</translation>
+        <source>Request payments (generates QR codes and Kobocoin: URIs)</source>
+        <translation>Demander des paiements (générer QR codes et Kobocoin: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
         <translation>Montrer la liste des adresses d'envois utilisées et les étiquettes</translation>
     </message>
     <message>
-        <source>Open a kobocoin: URI or payment request</source>
-        <translation>Ouvrir un kobocoin: URI ou demande de paiement</translation>
+        <source>Open a Kobocoin: URI or payment request</source>
+        <translation>Ouvrir un Kobocoin: URI ou demande de paiement</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Options de ligne de commande</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to kobocoin network</source>
-        <translation><numerusform>%n connexion active au réseau kobocoin</numerusform><numerusform>%n connexions actives au réseau kobocoin</numerusform></translation>
+        <source>%n active connection(s) to Kobocoin network</source>
+        <translation><numerusform>%n connexion active au réseau Kobocoin</numerusform><numerusform>%n connexions actives au réseau Kobocoin</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -617,8 +617,8 @@
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically open the kobocoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Ouvrir le port du client kobocoin automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l'UPnP et si la fonctionnalité est activée.</translation>
+        <source>Automatically open the Kobocoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Ouvrir le port du client Kobocoin automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l'UPnP et si la fonctionnalité est activée.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -781,8 +781,8 @@
         <translation>Montant</translation>
     </message>
     <message>
-        <source>Enter a kobocoin address (e.g. %1)</source>
-        <translation>Entrer une adresse kobocoin (e.g. %1)</translation>
+        <source>Enter a Kobocoin address (e.g. %1)</source>
+        <translation>Entrer une adresse Kobocoin (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1380,8 +1380,8 @@
         <translation>Impossible de démarrer le serveur HTTP. Voir le journal de débogage pour plus de détails.</translation>
     </message>
     <message>
-        <source>kobocoin Core</source>
-        <translation>kobocoin Core</translation>
+        <source>Kobocoin Core</source>
+        <translation>Kobocoin Core</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>

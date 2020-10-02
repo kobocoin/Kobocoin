@@ -126,7 +126,7 @@
         <translation>Оношилгоо ба засварын консолыг онгойлго</translation>
     </message>
     <message>
-        <source>kobocoin</source>
+        <source>Kobocoin</source>
         <translation>Биткойн</translation>
     </message>
     <message>
