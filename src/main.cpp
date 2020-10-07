@@ -2588,8 +2588,15 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
 
-        if (nStakeReward > nCalculatedStakeReward)
-            return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
+        // m2: do not allow negative stake values
+        if (nCalculatedStakeReward < 0) {
+            LogPrintf("[WARNING]: Found negative stake value, returned nCalculatedStakeReward=%d\n", nCalculatedStakeReward);
+            nCalculatedStakeReward = nStakeReward;
+            LogPrintf("[WARNING]: Negative stake reward adjusted for legacy verification: nCalculatedStakeReward=%d\n", nCalculatedStakeReward);
+        }
+        if (nStakeReward > nCalculatedStakeReward){
+//m2:            return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
+        }
     }
 
     if (!control.Wait()) {
