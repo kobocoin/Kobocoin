@@ -2569,24 +2569,42 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime3 = GetTimeMicros(); nTimeConnect += nTime3 - nTime2;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime3 - nTime2), 0.001 * (nTime3 - nTime2) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime3 - nTime2) / (nInputs-1), nTimeConnect * 0.000001);
 
-    if (block.IsProofOfWork())
-    {
-        CAmount blockReward = nFees + GetBlockSubsidy(pindex->nHeight, chainparams.GetConsensus());
-        if (block.vtx[0].GetValueOut() > blockReward)
-            return state.DoS(100,
-                             error("ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d in height=%d)",
-                                   block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
-                                   REJECT_INVALID, "bad-cb-amount");
-    }
+    if (block.IsProofOfWork()){
+	    CAmount blockReward = nFees + GetBlockSubsidy(pindex->nHeight, chainparams.GetConsensus());
+	    if (fm2) {
+            cout << "FM2: PoW ConnectBlock: block.vtx[0].GetValueOut() = " ;
+            cout << block.vtx[0].GetValueOut() / COIN;
+            cout << "\n";
+	    }
+	    if (block.vtx[0].GetValueOut() > blockReward) {
+	        return state.DoS(100, error("ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d in height=%d)",
+	                               block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
+	                               REJECT_INVALID, "bad-cb-amount");
+	    }
+	}
+
+
 
     if (block.IsProofOfStake())
     {
         // Coin stake tx earns reward instead of paying fee
         uint64_t nCoinAge;
-        if (!TransactionGetCoinAge(const_cast<CTransaction&>(block.vtx[1]), nCoinAge))
+        if (!TransactionGetCoinAge(const_cast<CTransaction&>(block.vtx[1]), nCoinAge)) {
             return error("ConnectBlock() : %s unable to get coin age for coinstake", block.vtx[1].GetHash().ToString());
+        }
+
+        if (fm2) {
+            cout << "FM2: PoS ConnectBlock: block.vtx[1].GetValueOut() = " ;
+            cout << block.vtx[1].GetValueOut() / COIN;
+            cout << "\n";
+        }
 
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
+        if (fm2) {
+            cout << "FM2: nCalculatedStakeReward = " ;
+            cout << nCalculatedStakeReward / COIN;
+            cout << "\n";
+        }
 
         // m2: do not allow negative stake values
         if (nCalculatedStakeReward < 0) {
