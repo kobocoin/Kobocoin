@@ -2613,6 +2613,11 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             nCalculatedStakeReward = nStakeReward;
             LogPrintf("[WARNING]: Negative stake reward adjusted for legacy verification: nCalculatedStakeReward=%d\n", nCalculatedStakeReward);
         }
+
+        if (fDebug) {
+            LogPrintf("[DEBUG]: nStakeReward=%d,  nCalculatedStakeReward=%d\n", nStakeReward, nCalculatedStakeReward);
+        }
+
         if (nStakeReward > nCalculatedStakeReward){
 //m2:            return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
         }
@@ -3543,8 +3548,9 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     if (block.IsProofOfStake())
     {
         // Coinbase output should be empty if proof-of-stake block
-        if ((block.vtx[0].vout.size() != 2 || !block.vtx[0].vout[0].IsEmpty() || !block.vtx[0].vout[1].IsEmpty() ))
-            return state.DoS(50, false, REJECT_INVALID, "coinbase-not-empty", true, "coinbase output not empty for proof-of-stake block");
+            if ((block.vtx[0].vout.size() != 2 || !block.vtx[0].vout[0].IsEmpty() || !block.vtx[0].vout[1].IsEmpty() )) {
+//m2:                return state.DoS(50, false, REJECT_INVALID, "coinbase-not-empty", true, "coinbase output not empty for proof-of-stake block");
+        }
 
         // Second transaction must be coinstake, the rest must not be
         if (block.vtx.empty() || !block.vtx[1].IsCoinStake())
@@ -6056,7 +6062,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         BOOST_FOREACH(const CBlock& header, headers) {
             CValidationState state;
             if (pindexLast != NULL && header.hashPrevBlock != pindexLast->GetBlockHash()) {
-                Misbehaving(pfrom->GetId(), 20);
+                if (!fm2) { //fm2 debugging
+                    Misbehaving(pfrom->GetId(), 20);
+                }
                 return error("non-continuous headers sequence");
             }
             CBlockHeader pblockheader = CBlockHeader(header);
@@ -6064,7 +6072,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 int nDoS;
                 if (state.IsInvalid(nDoS)) {
                     if (nDoS > 0)
-                        Misbehaving(pfrom->GetId(), nDoS);
+                        if (!fm2) { //fm2 debugging
+                            Misbehaving(pfrom->GetId(), nDoS);
+                        }
                     return error("invalid header received");
                 }
             }
