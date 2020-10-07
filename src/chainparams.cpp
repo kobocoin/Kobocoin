@@ -69,6 +69,7 @@ public:
         consensus.nPowTargetTimespan = 16 * 60; // 16 minutes
         consensus.nPowTargetSpacing = 60;
         consensus.nLastPOWBlock = 43200;
+		consensus.nRejectPoSbelow = 4000;
         consensus.nStakeMinAge = 24 * 60 * 60;
         consensus.nModifierInterval = 10 * 60;
         consensus.nStakeSplitAge = 24 * 60 * 60;
