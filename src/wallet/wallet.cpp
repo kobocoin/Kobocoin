@@ -3709,15 +3709,15 @@ int64_t CWallet::GetNewMint() const
 }
 
 bool CWallet::GetStakeWeightQuick(const int64_t& nTime, const int64_t& nValue, uint64_t& nWeight) {
-    arith_uint256 bnCoinDayWeight = arith_uint256(0);
+    CBigNum bnCoinDayWeight = 0;
     int64_t nTimeWeight;
 
     /* Stake weight reported is zero if time weight isn't positive */
     nTimeWeight = GetWeight(nTime, (int64_t)GetTime());
     if(nTimeWeight > 0)
       /* Two divides to avoid overflows on 32-bit systems */
-      bnCoinDayWeight = (arith_uint256(nValue) * nTimeWeight) / COIN / (24 * 60 * 60);
-    nWeight = bnCoinDayWeight.GetLow64();
+      bnCoinDayWeight = (CBigNum(nValue) * nTimeWeight) / COIN / (24 * 60 * 60);
+    nWeight = bnCoinDayWeight.getuint64();
     return(true);
 }
 
@@ -3735,29 +3735,30 @@ void CWallet::GetStakeWeight(uint64_t& nMinWeight, uint64_t& nMaxWeight, uint64_
     if (setCoins.empty())
         return;
 
+
     LOCK2(cs_main, cs_wallet);
     BOOST_FOREACH(PAIRTYPE(const CWalletTx*, unsigned int) pcoin, setCoins)
     {
 
         int64_t nTimeWeight = GetWeight((int64_t)pcoin.first->nTime, (int64_t)GetTime());
-        arith_uint256 bnCoinDayWeight = arith_uint256(pcoin.first->vout[pcoin.second].nValue) * nTimeWeight / COIN / (24 * 60 * 60);
+        CBigNum bnCoinDayWeight = CBigNum(pcoin.first->vout[pcoin.second].nValue) * nTimeWeight / COIN / (24 * 60 * 60);
 
         // Weight is greater than zero
         if (nTimeWeight > 0)
         {
-            nWeight += bnCoinDayWeight.GetLow64();
+            nWeight += bnCoinDayWeight.getuint64();
         }
 
         // Weight is greater than zero, but the maximum value isn't reached yet
         if (nTimeWeight > 0 && nTimeWeight < -1)
         {
-            nMinWeight += bnCoinDayWeight.GetLow64();
+            nMinWeight += bnCoinDayWeight.getuint64();
         }
 
         // Maximum weight was reached
         if (nTimeWeight == -1)
         {
-            nMaxWeight += bnCoinDayWeight.GetLow64();
+            nMaxWeight += bnCoinDayWeight.getuint64();
         }
     }
 }
@@ -3841,7 +3842,7 @@ bool CWallet::SelectCoinsForStaking(int64_t nTargetValue, unsigned int nSpendTim
 bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int64_t nSearchInterval, int64_t nFees, CMutableTransaction& txNew, CKey& key)
 {
     CBlockIndex* pindexPrev = pindexBestHeader;
-    arith_uint256 bnTargetPerCoinDay;
+    CBigNum bnTargetPerCoinDay;
     bnTargetPerCoinDay.SetCompact(nBits);
 
     txNew.vin.clear();

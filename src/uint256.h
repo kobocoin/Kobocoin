@@ -132,8 +132,6 @@ public:
         s.read((char*)data, sizeof(data));
     }
 
-    friend class uint160;
-    friend class uint256;
     friend class uint512;
 };
 
@@ -221,12 +219,6 @@ inline uint256 uint256S(const std::string& str)
     rv.SetHex(str);
     return rv;
 }
-
-inline uint512 uint512S(const std::string& str)
-{
-    uint512 rv;
-    rv.SetHex(str);
-    return rv;
-}
+uint256 Uint512ToUint256(const uint512 &a);
 
 #endif // BITCOIN_UINT256_H
