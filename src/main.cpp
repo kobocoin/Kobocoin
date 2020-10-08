@@ -2580,14 +2580,12 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             cout << block.vtx[0].GetValueOut() / COIN;
             cout << "\n";
 	    }
-	    if (block.vtx[0].GetValueOut() > blockReward) {
-	        return state.DoS(100, error("ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d in height=%d)",
-	                               block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
-	                               REJECT_INVALID, "bad-cb-amount");
-	    }
-	}
-
-
+        if (block.vtx[0].GetValueOut() > blockReward)
+            return state.DoS(100,
+                             error("ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d in height=%d)",
+                                   block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
+                                   REJECT_INVALID, "bad-cb-amount");
+    }
 
     if (block.IsProofOfStake())
     {
@@ -2615,7 +2613,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
             cout << "FM2: nCalculatedStakeReward = " ;
-            cout << nCalculatedStakeReward;
+            cout << nCalculatedStakeReward / COIN;
             cout << "\n";
 			cout << "FM2: nStakeReward = " ;
             cout << nStakeReward;
@@ -2633,14 +2631,12 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             LogPrintf("[DEBUG]: nStakeReward=%d,  nCalculatedStakeReward=%d\n", nStakeReward, nCalculatedStakeReward);
         }
 
-        if (nStakeReward > nCalculatedStakeReward){
-//m2:            return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
-        }
+        if (nStakeReward > nCalculatedStakeReward)
+            return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
     }
 
-    if (!control.Wait()) {
+    if (!control.Wait())
         return state.DoS(100, false);
-    }
     int64_t nTime4 = GetTimeMicros(); nTimeVerify += nTime4 - nTime2;
     LogPrint("bench", "    - Verify %u txins: %.2fms (%.3fms/txin) [%.2fs]\n", nInputs - 1, 0.001 * (nTime4 - nTime2), nInputs <= 1 ? 0 : 0.001 * (nTime4 - nTime2) / (nInputs-1), nTimeVerify * 0.000001);
 
@@ -7163,7 +7159,10 @@ bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge)
         LogPrint("coinage", "%s: coin age nValueIn=%d nTimeDiff=%d bnCentSecond=%s\n", __func__, nValueIn, transaction.nTime - txPrev.nTime, bnCentSecond.ToString());
     }
 
-    CBigNum bnCoinDay = ((bnCentSecond * CENT) / COIN) / (24 * 60 * 60);
+    CBigNum bnCoinDay;
+    bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
+
+
     LogPrint("coinage", "%s: coin age bnCoinDay=%s\n", __func__, bnCoinDay.ToString());
     nCoinAge = bnCoinDay.getuint64();
 
@@ -7487,12 +7486,12 @@ int64_t PastDrift(int64_t nTime) {
     if (nTime < Params().GetConsensus().timeLimitChange)
         return nTime - 2 * 60 * 60;
     else
-        return nTime - 10 * 60;
+        return nTime - 2 * 60 * 60;
 }
 
 int64_t FutureDrift(int64_t nTime) {
     if (nTime < Params().GetConsensus().timeLimitChange)
         return nTime + 2 * 60 * 60;
     else
-        return nTime + 10 * 60;
+        return nTime + 2 * 60 * 60;
 }
