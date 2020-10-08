@@ -1,10 +1,10 @@
 *.tar.gz
 
 *.exe
-src/kobocoin
-src/kobocoind
-src/kobocoin-cli
-src/kobocoin-tx
+src/Kobocoin
+src/Kobocoind
+src/Kobocoin-cli
+src/Kobocoin-tx
 src/test/test_bitcoin
 src/qt/test/test_bitcoin-qt
 
@@ -76,8 +76,8 @@ src/qt/test/moc*.cpp
 Makefile
 !depends/Makefile
 !src/qt/test/Makefile
-kobocoin-qt
-kobocoin-Qt.app
+Kobocoin-qt
+Kobocoin-Qt.app
 *.user*
 
 #QT Creator
@@ -92,7 +92,7 @@ kobocoin-Qt.app
 
 # Unit-tests
 Makefile.test
-bitcoin-qt_test
+Kobocoin-qt_test
 src/test/buildenv.py
 
 # Resources cpp

@@ -2573,6 +2573,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     if (block.IsProofOfWork()){
 	    CAmount blockReward = nFees + GetBlockSubsidy(pindex->nHeight, chainparams.GetConsensus());
 	    if (fm2) {
+			cout << "FM2: PoW ConnectBlock: pindex->nHeight = ";
+			cout << pindex->nHeight;
+			cout << "\n";
             cout << "FM2: PoW ConnectBlock: block.vtx[0].GetValueOut() = " ;
             cout << block.vtx[0].GetValueOut() / COIN;
             cout << "\n";
@@ -2595,15 +2598,27 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         }
 
         if (fm2) {
+			cout << "FM2: PoW ConnectBlock: pindex->nHeight = ";
+			cout << pindex->nHeight;
+			cout << "\n";
             cout << "FM2: PoS ConnectBlock: block.vtx[1].GetValueOut() = " ;
+            cout << block.vtx[1].GetValueOut() / COIN;
+            cout << "\n";
+			cout << "FM2: PoS ConnectBlock: block.vtx[2].GetValueOut() = " ;
             cout << block.vtx[1].GetValueOut() / COIN;
             cout << "\n";
         }
 
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
         if (fm2) {
+			cout << "FM2: PoW ConnectBlock: pindex->nHeight = ";
+			cout << pindex->nHeight;
+			cout << "\n";
             cout << "FM2: nCalculatedStakeReward = " ;
-            cout << nCalculatedStakeReward / COIN;
+            cout << nCalculatedStakeReward;
+            cout << "\n";
+			cout << "FM2: nStakeReward = " ;
+            cout << nStakeReward;
             cout << "\n";
         }
 
