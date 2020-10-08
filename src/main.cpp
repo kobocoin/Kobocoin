@@ -2364,7 +2364,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     }
 
     int64_t nTimeStart = GetTimeMicros();
-    int64_t nStakeReward = 0;
+    uint64_t nStakeReward = 0;
 
     // Check it again in case a previous version let a bad block in
     if (!CheckBlock(block, state, chainparams.GetConsensus(), !fJustCheck, !fJustCheck, !fJustCheck))
@@ -2631,12 +2631,17 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             LogPrintf("[DEBUG]: nStakeReward=%d,  nCalculatedStakeReward=%d\n", nStakeReward, nCalculatedStakeReward);
         }
 
-        if (nStakeReward > nCalculatedStakeReward)
+        if (nStakeReward > nCalculatedStakeReward){
             return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
+        }
+
+
+
     }
 
-    if (!control.Wait())
+    if (!control.Wait()) {
         return state.DoS(100, false);
+    }
     int64_t nTime4 = GetTimeMicros(); nTimeVerify += nTime4 - nTime2;
     LogPrint("bench", "    - Verify %u txins: %.2fms (%.3fms/txin) [%.2fs]\n", nInputs - 1, 0.001 * (nTime4 - nTime2), nInputs <= 1 ? 0 : 0.001 * (nTime4 - nTime2) / (nInputs-1), nTimeVerify * 0.000001);
 
