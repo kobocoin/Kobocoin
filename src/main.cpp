@@ -3710,7 +3710,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 
 bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIndex * const pindexPrev)
 {
-    const int nHeight = pindexPrev == NULL ? 0 : pindexPrev->nHeight + 1;
+    const int64_t nHeight = pindexPrev == nullptr ? 0 : pindexPrev->nHeight + 1;
     const Consensus::Params& consensusParams = Params().GetConsensus();
 
     if (block.IsProofOfWork()) {   
