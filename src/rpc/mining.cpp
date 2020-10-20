@@ -156,12 +156,12 @@ UniValue generate(const UniValue& params, bool fHelp)
             "\nMine up to numblocks blocks immediately (before the RPC call returns)\n"
             "\nArguments:\n"
             "1. numblocks    (numeric, required) How many blocks are generated immediately.\n"
-            "2. maxtries     (numeric, optional) How many iterations to try (default = 1000000).\n"
+            "2. maxtries     (numeric, optional) How many iterations to try (default = 1000000, max = 2147483647).\n"
             "\nResult\n"
             "[ blockhashes ]     (array) hashes of blocks generated\n"
             "\nExamples:\n"
-            "\nGenerate 11 blocks\n"
-            + HelpExampleCli("generate", "11")
+            "\nGenerate n blocks <maxtries>\n"
+            + HelpExampleCli("generate", "11 99999")
         );
 
     if (pindexBestHeader->nHeight >= Params().GetConsensus().nLastPOWBlock)
