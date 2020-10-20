@@ -69,12 +69,12 @@ public:
         consensus.nPowTargetTimespan = 16 * 60; // 16 minutes
         consensus.nPowTargetSpacing = 60;
         consensus.nLastPOWBlock = 43200;
-		consensus.nRejectPoSbelow = 4000;
+        consensus.nRejectPoSbelow = 3500; //m2:
         consensus.nStakeMinAge = 24 * 60 * 60;
         consensus.nModifierInterval = 10 * 60;
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 1421090888;
-        consensus.nStakeCombineThreshold = 100 * COIN;
+        consensus.nStakeCombineThreshold = 1000 * COIN;
         consensus.checkpointPubKey = "04011f5be18b59843bcb0bc09965ebf1d188b401d90c17dcfdfb07d8a97e56e6dd1c2ce164c542f73598eafe2bc39452813a5398c29a3abb13ebf1f8ef41ce13d9";
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;

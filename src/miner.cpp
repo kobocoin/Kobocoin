@@ -180,6 +180,7 @@ CBlockTemplate* BlockAssembler::CreateNewBlock(const CScript& scriptPubKeyIn, bo
         coinbaseTx.vout.resize(2);
     else
         coinbaseTx.vout.resize(1);
+		
     if (fProofOfStake) {
         coinbaseTx.vout[0].scriptPubKey.clear();
         coinbaseTx.vout[0].nValue = 0;
