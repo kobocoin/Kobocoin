@@ -2584,6 +2584,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 	                               block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
 	                               REJECT_INVALID, "bad-cb-amount");
 	    }
+	}
 
     if (block.IsProofOfStake())
     {
