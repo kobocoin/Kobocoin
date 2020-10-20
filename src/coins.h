@@ -91,10 +91,10 @@ public:
     int nVersion;
 
     //! transaction timestamp + coinstake flag
-    unsigned int nTime;
+    int nTime;
 
     //! block timestamp
-    unsigned int nBlockTime;
+    int nBlockTime;
 
     void FromTx(const CTransaction &tx, int nHeightIn, int nBlockTimeIn) {
         fCoinBase = tx.IsCoinBase();

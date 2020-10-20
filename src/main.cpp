@@ -507,6 +507,25 @@ bool PeerHasHeader(CNodeState *state, CBlockIndex *pindex)
     return false;
 }
 
+/** Find the last common ancestor two blocks have.
+ *  Both pa and pb must be non-NULL. */
+CBlockIndex* LastCommonAncestor(CBlockIndex* pa, CBlockIndex* pb) {
+    if (pa->nHeight > pb->nHeight) {
+        pa = pa->GetAncestor(pb->nHeight);
+    } else if (pb->nHeight > pa->nHeight) {
+        pb = pb->GetAncestor(pa->nHeight);
+    }
+
+    while (pa != pb && pa && pb) {
+        pa = pa->pprev;
+        pb = pb->pprev;
+    }
+
+    // Eventually all chain branches meet at the genesis block.
+    assert(pa == pb);
+    return pa;
+}
+
 /** Update pindexLastCommonBlock and add not-in-flight missing successors to vBlocks, until it has
  *  at most count entries. */
 void FindNextBlocksToDownload(NodeId nodeid, unsigned int count, std::vector<CBlockIndex*>& vBlocks, NodeId& nodeStaller, const Consensus::Params& consensusParams) {
@@ -596,26 +615,6 @@ void FindNextBlocksToDownload(NodeId nodeid, unsigned int count, std::vector<CBl
 }
 
 } // anon namespace
-
-/** Find the last common ancestor two blocks have.
- *  Both pa and pb must be non-NULL. */
-CBlockIndex* LastCommonAncestor(CBlockIndex* pa, CBlockIndex* pb) {
-    if (pa->nHeight > pb->nHeight) {
-        pa = pa->GetAncestor(pb->nHeight);
-    } else if (pb->nHeight > pa->nHeight) {
-        pb = pb->GetAncestor(pa->nHeight);
-    }
-
-    while (pa != pb && pa && pb) {
-        pa = pa->pprev;
-        pb = pb->pprev;
-    }
-
-    // Eventually all chain branches meet at the genesis block.
-    assert(pa == pb);
-    return pa;
-}
-
 
 bool GetNodeStateStats(NodeId nodeid, CNodeStateStats &stats) {
     LOCK(cs_main);
@@ -2580,18 +2579,17 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             cout << block.vtx[0].GetValueOut() / COIN;
             cout << "\n";
 	    }
-        if (block.vtx[0].GetValueOut() > blockReward)
-            return state.DoS(100,
-                             error("ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d in height=%d)",
-                                   block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
-                                   REJECT_INVALID, "bad-cb-amount");
-    }
+	    if (block.vtx[0].GetValueOut() > blockReward) {
+	        return state.DoS(100, error("ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d in height=%d)",
+	                               block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
+	                               REJECT_INVALID, "bad-cb-amount");
+	    }
 
     if (block.IsProofOfStake())
     {
         // Coin stake tx earns reward instead of paying fee
         uint64_t nCoinAge;
-        if (!TransactionGetCoinAge(const_cast<CTransaction&>(block.vtx[1]), nCoinAge)) {
+        if (!TransactionGetCoinAge(const_cast<CTransaction&>(block.vtx[1]), nCoinAge)){
             return error("ConnectBlock() : %s unable to get coin age for coinstake", block.vtx[1].GetHash().ToString());
         }
 

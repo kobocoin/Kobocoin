@@ -71,6 +71,7 @@ public:
         consensus.nLastPOWBlock = 43200;
         consensus.nRejectPoSbelow = 3500; //m2:
         consensus.nStakeMinAge = 24 * 60 * 60;
+		consensus.nBlockVersionCheckStart = 4001; //m2: blocks after this will be version checked.
         consensus.nModifierInterval = 10 * 60;
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 1421090888;
