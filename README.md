@@ -9,7 +9,7 @@ Kobocoin Core integration/staging tree
 
 ======================================
 
-##https://kobocoin.com/
+## https://kobocoin.com/
 
 Welcome to the Kobocoin core project.
 More info TBA
