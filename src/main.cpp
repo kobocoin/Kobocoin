@@ -1706,22 +1706,10 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 // staker's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
-    int64_t nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365;
+	int64_t nSubsidy;
 
-    CAmount nMoneySupply;
-    {
-        LOCK(cs_main);
-        nMoneySupply = chainActive.Tip()->nMoneySupply;
-    }
+        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365;
 
-    if (nMoneySupply >= MAX_MONEY)
-    {
-        nSubsidy = 0;
-    }
-    else if (nMoneySupply + nSubsidy >= MAX_MONEY)
-    {
-        nSubsidy = MAX_MONEY - nMoneySupply;
-    }
 
     return nSubsidy + nFees;
 }
@@ -2363,7 +2351,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     }
 
     int64_t nTimeStart = GetTimeMicros();
-    uint64_t nStakeReward = 0;
+    int64_t nStakeReward = 0;
 
     // Check it again in case a previous version let a bad block in
     if (!CheckBlock(block, state, chainparams.GetConsensus(), !fJustCheck, !fJustCheck, !fJustCheck))
@@ -2576,7 +2564,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
             cout << "FM2: PoW ConnectBlock: block.vtx[0].GetValueOut() = " ;
-            cout << block.vtx[0].GetValueOut() / COIN;
+            cout << block.vtx[0].GetValueOut();
             cout << "\n";
 	    }
 	    if (block.vtx[0].GetValueOut() > blockReward) {
@@ -2585,6 +2573,8 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 	                               REJECT_INVALID, "bad-cb-amount");
 	    }
 	}
+
+
 
     if (block.IsProofOfStake())
     {
@@ -2595,24 +2585,24 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         }
 
         if (fm2) {
-			cout << "FM2: PoW ConnectBlock: pindex->nHeight = ";
+			cout << "FM2: ConnectBlock: pindex->nHeight = ";
 			cout << pindex->nHeight;
 			cout << "\n";
-            cout << "FM2: PoS ConnectBlock: block.vtx[1].GetValueOut() = " ;
-            cout << block.vtx[1].GetValueOut() / COIN;
+			cout << "FM2: ConnectBlock: block.vtx[0].GetValueOut() = " ;
+            cout << block.vtx[0].GetValueOut();
             cout << "\n";
-			cout << "FM2: PoS ConnectBlock: block.vtx[2].GetValueOut() = " ;
-            cout << block.vtx[1].GetValueOut() / COIN;
+            cout << "FM2: ConnectBlock: block.vtx[1].GetValueOut() = " ;
+            cout << block.vtx[1].GetValueOut();
             cout << "\n";
         }
 
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
         if (fm2) {
-			cout << "FM2: PoW ConnectBlock: pindex->nHeight = ";
+			cout << "FM2: ConnectBlock: pindex->nHeight = ";
 			cout << pindex->nHeight;
 			cout << "\n";
             cout << "FM2: nCalculatedStakeReward = " ;
-            cout << nCalculatedStakeReward / COIN;
+            cout << nCalculatedStakeReward;
             cout << "\n";
 			cout << "FM2: nStakeReward = " ;
             cout << nStakeReward;
@@ -2631,6 +2621,15 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         }
 
         if (nStakeReward > nCalculatedStakeReward){
+			if (fm2) {
+				cout << "FM2: ConnectBlock: coinstake pays too much, ";
+				cout << "actual = ";
+				cout << nStakeReward;
+				cout << " vs Calculated = ";
+				cout << nCalculatedStakeReward;
+				cout << "\n";
+			}
+		
             return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
         }
 
@@ -3563,8 +3562,8 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     if (block.IsProofOfStake())
     {
         // Coinbase output should be empty if proof-of-stake block
-            if ((block.vtx[0].vout.size() != 2 || !block.vtx[0].vout[0].IsEmpty() || !block.vtx[0].vout[1].IsEmpty() )) {
-//m2:                return state.DoS(50, false, REJECT_INVALID, "coinbase-not-empty", true, "coinbase output not empty for proof-of-stake block");
+            if ((block.vtx[0].vout.size() != 1 || !block.vtx[0].vout[0].IsEmpty() )) {
+                return state.DoS(50, false, REJECT_INVALID, "coinbase-not-empty", true, "coinbase output not empty for proof-of-stake block");
         }
 
         // Second transaction must be coinstake, the rest must not be
@@ -3822,8 +3821,10 @@ static bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state
         // Get prev block index
         CBlockIndex* pindexPrev = NULL;
         BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
-        if (mi == mapBlockIndex.end())
+        if (mi == mapBlockIndex.end()){
             return state.DoS(10, error("%s: prev block not found", __func__), 0, "bad-prevblk");
+        }
+
         pindexPrev = (*mi).second;
         if (pindexPrev->nStatus & BLOCK_FAILED_MASK)
             return state.DoS(100, error("%s: prev block invalid", __func__), REJECT_INVALID, "bad-prevblk");
@@ -6081,9 +6082,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         BOOST_FOREACH(const CBlock& header, headers) {
             CValidationState state;
             if (pindexLast != NULL && header.hashPrevBlock != pindexLast->GetBlockHash()) {
-                if (!fm2) { //fm2 debugging
-                    Misbehaving(pfrom->GetId(), 20);
-                }
+                Misbehaving(pfrom->GetId(), 20);
                 return error("non-continuous headers sequence");
             }
             CBlockHeader pblockheader = CBlockHeader(header);
@@ -6091,9 +6090,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
                 int nDoS;
                 if (state.IsInvalid(nDoS)) {
                     if (nDoS > 0)
-                        if (!fm2) { //fm2 debugging
-                            Misbehaving(pfrom->GetId(), nDoS);
-                        }
+                        Misbehaving(pfrom->GetId(), nDoS);
                     return error("invalid header received");
                 }
             }
@@ -7168,9 +7165,8 @@ bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge)
     }
 
     CBigNum bnCoinDay;
-    bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
-
-
+//    bnCoinDay = ((bnCentSecond * CENT) / COIN) / (24 * 60 * 60);
+	bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
     LogPrint("coinage", "%s: coin age bnCoinDay=%s\n", __func__, bnCoinDay.ToString());
     nCoinAge = bnCoinDay.getuint64();
 
@@ -7492,14 +7488,14 @@ bool CheckProofOfStake(const CTransaction& tx, unsigned int nBits, arith_uint256
 
 int64_t PastDrift(int64_t nTime) {
     if (nTime < Params().GetConsensus().timeLimitChange)
-        return nTime - 2 * 60 * 60;
+        return nTime - 24 * 60 * 60;
     else
-        return nTime - 2 * 60 * 60;
+        return nTime - 24 * 60 * 60;
 }
 
 int64_t FutureDrift(int64_t nTime) {
     if (nTime < Params().GetConsensus().timeLimitChange)
-        return nTime + 2 * 60 * 60;
+        return nTime + 24 * 60 * 60;
     else
-        return nTime + 2 * 60 * 60;
+        return nTime + 24 * 60 * 60;
 }

@@ -124,10 +124,6 @@
 static void
 SPH_XCAT(HASH, _short)(void *cc, const void *data, size_t len)
 #else
-
-#include <stddef.h>
-#include <string.h>
-
 void
 SPH_XCAT(sph_, HASH)(void *cc, const void *data, size_t len)
 #endif
