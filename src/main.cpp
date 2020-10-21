@@ -7165,7 +7165,7 @@ bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge)
     }
 
     CBigNum bnCoinDay;
-//    bnCoinDay = ((bnCentSecond * CENT) / COIN) / (24 * 60 * 60);
+//m2:    bnCoinDay = ((bnCentSecond * CENT) / COIN) / (24 * 60 * 60);
 	bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
     LogPrint("coinage", "%s: coin age bnCoinDay=%s\n", __func__, bnCoinDay.ToString());
     nCoinAge = bnCoinDay.getuint64();
@@ -7488,14 +7488,14 @@ bool CheckProofOfStake(const CTransaction& tx, unsigned int nBits, arith_uint256
 
 int64_t PastDrift(int64_t nTime) {
     if (nTime < Params().GetConsensus().timeLimitChange)
-        return nTime - 24 * 60 * 60;
+        return nTime - 2 * 60 * 60;
     else
-        return nTime - 24 * 60 * 60;
+        return nTime - 10 * 60;
 }
 
 int64_t FutureDrift(int64_t nTime) {
     if (nTime < Params().GetConsensus().timeLimitChange)
-        return nTime + 24 * 60 * 60;
+        return nTime + 2 * 60 * 60;
     else
-        return nTime + 24 * 60 * 60;
+        return nTime + 10 * 60;
 }
