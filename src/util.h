@@ -35,7 +35,8 @@
 
 #include <stdint.h>
 #include <inttypes.h>
-
+typedef long long  int64;
+typedef unsigned long long  uint64;
 static const int64_t COIN = 100000000;
 static const int64_t CENT = 1000000;
 
