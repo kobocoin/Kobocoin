@@ -68,7 +68,7 @@ public:
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 16 * 60; // 16 minutes
         consensus.nPowTargetSpacing = 60;
-        consensus.nPowTargetSpacing2 = 2 * 60;
+        consensus.nPowTargetSpacing2 = 2 * 60; // Prep for future hard fork
 		consensus.nPowTargetSpacing2_start = 10000000; // Prep for future hard fork
         consensus.nLastPOWBlock = 43200;
         consensus.nRejectPoSbelow = 4000; //m2:
@@ -154,19 +154,22 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nMajorityEnforceBlockUpgrade = 51;
+        consensus.nMajorityEnforceBlockUpgrade = 50;
         consensus.nMajorityRejectBlockOutdated = 75;
         consensus.nMajorityWindow = 100;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 16 * 60; // 16 minutes
         consensus.nPowTargetSpacing = 60;
+        consensus.nPowTargetSpacing2 = 2 * 60;	
+		consensus.nPowTargetSpacing2_start = 100;
         consensus.nLastPOWBlock = 43200;
 		consensus.nRejectPoSbelow = 4000;
-        consensus.nStakeMinAge = 24 * 60 * 60;
+        consensus.nStakeMinAge = 15 * 60; // testnet min age is 15 mins
         consensus.nModifierInterval = 60;
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 1455825600;
-        consensus.nStakeCombineThreshold = 100 * COIN;
+        consensus.nBlockVersionCheckStart = 5; //m2: blocks after this will be version checked.
+        consensus.nStakeCombineThreshold = 1000 * COIN;
         consensus.checkpointPubKey = "043824867726f0c11fa2c4d62c1be60cf2bbaced609e17f099ca318b56addb3b7e47f38c983580b82e3b89fee9fab7c9dada97bc66bc4bc249f18a7a7fd139005a";
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
@@ -247,11 +250,13 @@ public:
         consensus.nPowTargetTimespan = 16 * 60; // 16 minutes
         consensus.nPowTargetSpacing = 60;
         consensus.nLastPOWBlock = 4000000;
+        consensus.nPowTargetSpacing2 = 2 * 60;
+		consensus.nPowTargetSpacing2_start = 30;
         consensus.nStakeMinAge = 12 * 60 * 60;
         consensus.nModifierInterval = 10 * 60;
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 0;
-        consensus.nStakeCombineThreshold = 100 * COIN;
+        consensus.nStakeCombineThreshold = 1000 * COIN;
         consensus.checkpointPubKey = "043824867726f0c11fa2c4d62c1be60cf2bbaced609e17f099ca318b56addb3b7e47f38c983580b82e3b89fee9fab7c9dada97bc66bc4bc249f18a7a7fd139005a";
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
