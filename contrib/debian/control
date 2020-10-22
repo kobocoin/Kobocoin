@@ -25,7 +25,7 @@ Build-Depends: debhelper,
 Standards-Version: 3.9.2
 Homepage: https://bitcoincore.org/
 Vcs-Git: git://github.com/bitcoin/bitcoin.git
-Vcs-Browser: https://github.com/bitcoin/bitcoin
+Vcs-Browser: https://github.com/kobocoin/Kobocoin
 
 Package: bitcoind
 Architecture: any
@@ -40,7 +40,7 @@ Description: peer-to-peer network based digital currency - daemon
  This package provides the daemon, bitcoind, and the CLI tool
  bitcoin-cli to interact with the daemon.
 
-Package: bitcoin-qt
+Package: Kobocoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
@@ -50,7 +50,7 @@ Description: peer-to-peer network based digital currency - Qt GUI
  and issuing money are carried out collectively by the network. Bitcoin Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides Bitcoin-Qt, a GUI for Bitcoin based on Qt.
+ This package provides Kobocoin-Qt, a GUI for Bitcoin based on Qt.
 
 Package: bitcoin-tx
 Architecture: any
