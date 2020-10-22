@@ -1,1 +1,1 @@
-178.128.157.171:18884
+# List of fixed seed nodes for testnet
