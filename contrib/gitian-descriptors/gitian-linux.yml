@@ -28,7 +28,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/kobocoin/Kobocoin.git"
+- "url": "https://github.com/mammix2/Kobocoin.git"
   "dir": "Kobocoin"
 files: []
 script: |
