@@ -1,5 +1,5 @@
 ---
-name: "kobocoin-linux-2.9.0"
+name: "Kobocoin-linux-2.9.0"
 enable_cache: true
 suites:
 - "trusty"
@@ -28,8 +28,8 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/kobocoin/kobocoin.git"
-  "dir": "kobocoin"
+- "url": "https://github.com/kobocoin/Kobocoin.git"
+  "dir": "Kobocoin"
 files: []
 script: |
 
