@@ -195,6 +195,7 @@ BITCOIN_QT_H = \
   qt/guiconstants.h \
   qt/guiutil.h \
   qt/intro.h \
+  qt/listview.h \
   qt/macdockiconhandler.h \
   qt/macnotificationhandler.h \
   qt/networkstyle.h \
