@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2011-2019 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -132,7 +132,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Kobocoin address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a boostcoin address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -150,7 +150,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no Kobocoin: URI
+    // return if URI is not valid or is no boostcoin: URI
     if(!uri.isValid() || uri.scheme() != QString("bitcoin"))
         return false;
 
@@ -211,13 +211,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert Kobocoin:// to Kobocoin:
+    // Convert boostcoin:// to boostcoin:
     //
-    //    Cannot handle this later, because Kobocoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because boostcoin:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("Kobocoin://", Qt::CaseInsensitive))
+    if(uri.startsWith("boostcoin://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 14, "Kobocoin:");
+        uri.replace(0, 14, "boostcoin:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -225,7 +225,7 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("Kobocoin:%1").arg(info.address);
+    QString ret = QString("boostcoin:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
@@ -610,10 +610,10 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Kobocoin.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "boostcoin.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Kobocoin (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Kobocoin (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "boostcoin (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("boostcoin (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -710,8 +710,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "Kobocoin.desktop";
-    return GetAutostartDir() / strprintf("Kobocoin-%s.lnk", chain);
+        return GetAutostartDir() / "boostcoin.desktop";
+    return GetAutostartDir() / strprintf("boostcoin-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -750,13 +750,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a Kobocoin.desktop file to the autostart directory:
+        // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Kobocoin\n";
+            optionFile << "Name=boostcoin\n";
         else
-            optionFile << strprintf("Name=Kobocoin (%s)\n", chain);
+            optionFile << strprintf("Name=boostcoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -775,7 +775,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the Kobocoin app
+    // loop through the list of startup items and try to find the bitcoin app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);

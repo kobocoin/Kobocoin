@@ -40,6 +40,9 @@ namespace GUIUtil
     // Return a monospace font
     QFont fixedPitchFont();
 
+    // Setup GUI theme
+    void SetThemeQSS(QApplication& app);
+
     // Set up widgets for address and amounts
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
