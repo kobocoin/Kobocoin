@@ -75,7 +75,7 @@ GLOBAL sph_whirlpool_context     z_whirlpool;
 #define ZWHIRLPOOL (memcpy(&ctx_whirlpool, &z_whirlpool, sizeof(z_whirlpool)))
 
 template<typename T1>
-inline uint256 Hash9(const T1 pbegin, const T1 pend)
+inline uint256 HashX15(const T1 pbegin, const T1 pend)
 
 {
     sph_blake512_context     ctx_blake;
