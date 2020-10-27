@@ -49,8 +49,8 @@ QString BitcoinUnits::name(int unit)
     switch(unit)
     {
     case BTC: return QString("KOBO");
-    case mBTC: return QString("mKOBO");
-    case uBTC: return QString::fromUtf8("μKOBO");
+    case mBTC: return QString("MANILLA");
+    case uBTC: return QString::fromUtf8("COWRIE");
     default: return QString("???");
     }
 }
@@ -60,8 +60,8 @@ QString BitcoinUnits::description(int unit)
     switch(unit)
     {
     case BTC: return QString("Kobocoin");
-    case mBTC: return QString("Milli-Kobocoin (1 / 1" THIN_SP_UTF8 "000)");
-    case uBTC: return QString("Micro-Kobocoin (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+    case mBTC: return QString("Manilla (1 / 1" THIN_SP_UTF8 "000)");
+    case uBTC: return QString("Cowrie (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
     default: return QString("???");
     }
 }
