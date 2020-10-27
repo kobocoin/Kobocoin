@@ -2105,25 +2105,31 @@ bool CBlock::AcceptBlock()
     int nHeight = pindexPrev->nHeight+1;
 
     if (!fTestNet){
-            if (IsProofOfWork() && nHeight > LAST_POW_BLOCK){
-                return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
-            } else {
-            if (IsProofOfWork() && nHeight > LAST_POW_BLOCK_TESTNET){
-                return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
-            }
+        if (IsProofOfWork() && nHeight > LAST_POW_BLOCK){
+            return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
+        }
+    } else {
+        if (IsProofOfWork() && nHeight > LAST_POW_BLOCK_TESTNET){
+            return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
         }
     }
+
 
 
     if (!fTestNet){
-            if (IsProofOfStake() && nHeight < MODIFIER_INTERVAL_SWITCH){
-                return DoS(100, error("AcceptBlock() : reject proof-of-stake at height %d", nHeight));
-            } else {
-            if (IsProofOfStake() && nHeight < MODIFIER_INTERVAL_SWITCH_TESTNET){
-                return DoS(100, error("AcceptBlock() : reject proof-of-stake at height %d", nHeight));
-            }
+        if (IsProofOfStake() && nHeight < MODIFIER_INTERVAL_SWITCH){
+            return DoS(100, error("AcceptBlock() : reject proof-of-stake at height %d", nHeight));
+        }
+    } else {
+        if (IsProofOfStake() && nHeight < MODIFIER_INTERVAL_SWITCH_TESTNET){
+            return DoS(100, error("AcceptBlock() : reject proof-of-stake at height %d", nHeight));
         }
     }
+
+
+
+
+
 
     // Check proof-of-work or proof-of-stake
     if (nBits != GetNextTargetRequired(pindexPrev, IsProofOfStake()))
