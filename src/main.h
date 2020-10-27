@@ -907,7 +907,7 @@ public:
 
     uint256 GetHash() const
     {
-        return Hash9(BEGIN(nVersion), END(nNonce));
+        return HashX15(BEGIN(nVersion), END(nNonce));
     }
 
     int64_t GetBlockTime() const
