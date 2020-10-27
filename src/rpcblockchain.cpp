@@ -45,8 +45,9 @@ double GetDifficulty(const CBlockIndex* blockindex)
 
 double GetPoWMHashPS()
 {
-    if (pindexBest->nHeight >= LAST_POW_BLOCK)
+    if (pindexBest->nHeight >= (!fTestNet ? LAST_POW_BLOCK : LAST_POW_BLOCK_TESTNET))
         return 0;
+
 
     int nPoWInterval = 72;
     int64_t nTargetSpacingWorkMin = 30, nTargetSpacingWork = 30;
