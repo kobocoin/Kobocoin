@@ -139,7 +139,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
 
     connect(ui->listTransactions, SIGNAL(clicked(QModelIndex)), this, SLOT(handleTransactionClicked(QModelIndex)));
-    connect(ui->unlockStakingButton, SIGNAL(clicked()), this, SLOT(unlockWalletStaking()));
+//    connect(ui->unlockStakingButton, SIGNAL(clicked()), this, SLOT(unlockWalletStaking()));
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
@@ -154,7 +154,7 @@ void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 
 void OverviewPage::showLockStaking(bool status)
 {
-    ui->unlockStakingButton->setVisible(status);
+//    ui->unlockStakingButton->setVisible(true);
 }
 
 OverviewPage::~OverviewPage()
@@ -185,10 +185,10 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance, false, BitcoinUnits::separatorAlways));
     ui->labelTotal->setText(BitcoinUnits::formatWithUnit(unit, balance + unconfirmedBalance + stakingBalance, false, BitcoinUnits::separatorAlways));
 
-    bool showStaking = stakingBalance != 0;
+//    bool showStaking = stakingBalance != 0;
 
-    ui->labelStaking->setVisible(showStaking);
-    ui->labelStakingText->setVisible(showStaking);
+    ui->labelStaking->setVisible(true);
+    ui->labelStakingText->setVisible(true);
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
@@ -196,8 +196,8 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     bool showWatchOnlyImmature = watchImmatureBalance != 0;
 
     // for symmetry reasons also show immature label when the watch-only one is shown
-    ui->labelImmature->setVisible(false);
-    ui->labelImmatureText->setVisible(false);
+    ui->labelImmature->setVisible(showWatchOnlyImmature);
+    ui->labelImmatureText->setVisible(showWatchOnlyImmature);
 }
 
 // show/hide watch-only labels
