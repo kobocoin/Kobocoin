@@ -144,7 +144,14 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     toggleStakingAction(0),
     platformStyle(platformStyle)
 {
-    GUIUtil::restoreWindowGeometry("nWindow", QSize(840, 600), this);
+	
+#ifdef Q_OS_MAC
+    GUIUtil::restoreWindowGeometry("nWindow", QSize(880, 615), this);
+#elif _WIN32
+    GUIUtil::restoreWindowGeometry("nWindow", QSize(880, 615), this);
+#else
+    GUIUtil::restoreWindowGeometry("nWindow", QSize(880, 615), this);
+#endif
 
     QString windowTitle = tr(PACKAGE_NAME) + " - ";
 #ifdef ENABLE_WALLET
@@ -247,7 +254,7 @@ BitcoinGUI::BitcoinGUI(const PlatformStyle *platformStyle, const NetworkStyle *n
     {
         QTimer *timerStakingIcon = new QTimer(labelStakingIcon);
         connect(timerStakingIcon, SIGNAL(timeout()), this, SLOT(updateStakingStatus()));
-        timerStakingIcon->start(150 * 1000);
+        timerStakingIcon->start(5 * 1000);
         updateStakingStatus();
     }
     else
@@ -305,14 +312,14 @@ void BitcoinGUI::createActions()
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
-    overviewAction = new QAction(platformStyle->SingleColorIcon(":/icons/overview"), tr("&Overview"), this);
+    overviewAction = new QAction(tr("&OVERVIEW"), this);
     overviewAction->setStatusTip(tr("Show general overview of wallet"));
     overviewAction->setToolTip(overviewAction->statusTip());
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    sendCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/send"), tr("&Send"), this);
+    sendCoinsAction = new QAction(tr("&SEND COINS"), this);
     sendCoinsAction->setStatusTip(tr("Send coins to a Kobocoin address"));
     sendCoinsAction->setToolTip(sendCoinsAction->statusTip());
     sendCoinsAction->setCheckable(true);
@@ -323,7 +330,7 @@ void BitcoinGUI::createActions()
     sendCoinsMenuAction->setStatusTip(sendCoinsAction->statusTip());
     sendCoinsMenuAction->setToolTip(sendCoinsMenuAction->statusTip());
 
-    receiveCoinsAction = new QAction(platformStyle->SingleColorIcon(":/icons/receiving_addresses"), tr("&Receive"), this);
+    receiveCoinsAction = new QAction(tr("&RECEIVE COINS"), this);
     receiveCoinsAction->setStatusTip(tr("Request payments (generates QR codes and Kobocoin: URIs)"));
     receiveCoinsAction->setToolTip(receiveCoinsAction->statusTip());
     receiveCoinsAction->setCheckable(true);
@@ -337,7 +344,7 @@ void BitcoinGUI::createActions()
     toggleStakingAction = new QAction(tr("Toggle &Staking"), this);
     toggleStakingAction->setStatusTip(tr("Toggle Staking"));
 
-    historyAction = new QAction(platformStyle->SingleColorIcon(":/icons/history"), tr("&Transactions"), this);
+    historyAction = new QAction(tr("&TRANSACTIONS"), this);
     historyAction->setStatusTip(tr("Browse transaction history"));
     historyAction->setToolTip(historyAction->statusTip());
     historyAction->setCheckable(true);
@@ -1330,15 +1337,15 @@ void BitcoinGUI::updateStakingStatus()
             {
                 if (nEstimateTime < 60*60)
                 {
-                    text = tr("Expected time to earn reward is %n minute(s)", "", nEstimateTime/60);
+                    text = tr("Expected time to start staking is ~ %n minute(s)", "", nEstimateTime/60);
                 }
                 else if (nEstimateTime < 24*60*60)
                 {
-                    text = tr("Expected time to earn reward is %n hour(s)", "", nEstimateTime/(60*60));
+                    text = tr("Expected time to start staking is ~ %n hour(s)", "", nEstimateTime/(60*60));
                 }
                 else
                 {
-                    text = tr("Expected time to earn reward is %n day(s)", "", nEstimateTime/(60*60*24));
+                    text = tr("Expected time to start staking is ~ %n day(s)", "", nEstimateTime/(60*60*24));
                 }
             }
 
@@ -1346,19 +1353,30 @@ void BitcoinGUI::updateStakingStatus()
             nNetworkWeight /= COIN;
 
             walletFrame->setStakingStatus(text!=""?text:tr("You are staking"));
+            labelStakingIcon->setPixmap(QIcon(":/icons/staking_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+            labelStakingIcon->setToolTip(tr("Staking.<br>Your weight is %1,<br>Network weight is %2,<br> %3").arg(nWeight).arg(nNetworkWeight).arg(text));
         }
         else
         {
-            if (pwalletMain && pwalletMain->IsLocked())
+            labelStakingIcon->setPixmap(QIcon(":/icons/staking_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+
+
+            if (pwalletMain && pwalletMain->IsLocked()) {
                 walletFrame->setStakingStatus(tr("Not staking - Wallet locked"));
-            else if (vNodes.empty())
+                labelStakingIcon->setToolTip(tr("Not staking - Wallet locked"));
+            } else if (vNodes.empty()) {
                 walletFrame->setStakingStatus(tr("Not staking - Wallet offline"));
-            else if (IsInitialBlockDownload())
+                labelStakingIcon->setToolTip(tr("Not staking - Wallet offline"));
+            } else if (IsInitialBlockDownload()) {
                 walletFrame->setStakingStatus(tr("Not staking - Wallet syncing"));
-            else if (!nWeight)
+                labelStakingIcon->setToolTip(tr("Not staking - Wallet syncing"));
+            } else if (!nWeight) {
                 walletFrame->setStakingStatus(tr("Not staking - Immature coins"));
-            else
+                labelStakingIcon->setToolTip(tr("Not staking - Immature coins"));
+            } else {
                 walletFrame->setStakingStatus(tr("Not staking - Please wait"));
+                labelStakingIcon->setToolTip(tr("Not staking - Please wait"));
+            }
         }
     }
 }
