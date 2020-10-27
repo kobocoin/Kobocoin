@@ -166,7 +166,7 @@ public:
 		consensus.nPowTargetSpacing2_start = 100;
         consensus.nLastPOWBlock = 43200;
 		consensus.nRejectPoSbelow = 4000;
-        consensus.nStakeMinAge = 15 * 60; // testnet min age is 15 mins
+        consensus.nStakeMinAge = 20 * 60; // testnet min age is 20 mins
         consensus.nModifierInterval = 60;
         consensus.nStakeSplitAge = 24 * 60 * 60;
         consensus.timeLimitChange = 1455825600;
