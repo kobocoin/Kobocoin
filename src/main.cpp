@@ -1,5 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2016 The Bitcoin Core developers
+// Copyright (c) 2014-2020 the Kobocoin developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1708,7 +1709,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
 	int64_t nSubsidy;
 
-        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365;
+        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365 / COIN;
 
 
     return nSubsidy + nFees;
