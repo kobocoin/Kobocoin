@@ -3713,9 +3713,10 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     const int64_t nHeight = pindexPrev == nullptr ? 0 : pindexPrev->nHeight + 1;
     const Consensus::Params& consensusParams = Params().GetConsensus();
 
-    if (block.IsProofOfWork()) {   
-        if (nHeight > consensusParams.nLastPOWBlock)
+    if (block.IsProofOfWork()) {
+        if (nHeight > consensusParams.nLastPOWBlock) {
             return state.DoS(100, false, REJECT_INVALID, "pow-ended", true, "reject proof-of-work at height");
+        }
     }
 
     // Start enforcing BIP113 (Median Time Past) using versionbits logic.
@@ -7166,8 +7167,9 @@ bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge)
     }
 
     CBigNum bnCoinDay;
-//m2:    bnCoinDay = ((bnCentSecond * CENT) / COIN) / (24 * 60 * 60);
-	bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
+    bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
+
+
     LogPrint("coinage", "%s: coin age bnCoinDay=%s\n", __func__, bnCoinDay.ToString());
     nCoinAge = bnCoinDay.getuint64();
 
