@@ -139,7 +139,7 @@ bool ShutdownRequested()
 /**
  * This is a minimally invasive approach to shutdown on LevelDB read errors from the
  * chainstate, while keeping user interface out of the common library, which is shared
- * between bitcoind, and bitcoin-qt and non-server tools.
+ * between Kobocoind, and Kobocoin-qt and non-server tools.
 */
 class CCoinsViewErrorCatcher : public CCoinsViewBacked
 {
@@ -1044,7 +1044,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
         }
     }
 	
-	if (mapArgs.count("-checkpointkey")) // ppcoin: checkpoint master priv key
+	if (mapArgs.count("-checkpointkey")) // checkpoint master priv key
 	{
 		if (!SetCheckpointPrivKey(GetArg("-checkpointkey", "")))
 			return InitError(_("Unable to sign checkpoint, wrong checkpointkey?"));
