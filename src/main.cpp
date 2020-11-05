@@ -2565,7 +2565,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
             cout << "FM2: PoW ConnectBlock: block.vtx[0].GetValueOut() = " ;
-            cout << block.vtx[0].GetValueOut();
+	        cout << block.vtx[0].GetValueOut() / COIN;
             cout << "\n";
 	    }
 	    if (block.vtx[0].GetValueOut() > blockReward) {
