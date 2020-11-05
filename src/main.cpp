@@ -2590,10 +2590,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
 			cout << "FM2: ConnectBlock: block.vtx[0].GetValueOut() = " ;
-            cout << block.vtx[0].GetValueOut();
+            cout << block.vtx[0].GetValueOut() / COIN;;
             cout << "\n";
             cout << "FM2: ConnectBlock: block.vtx[1].GetValueOut() = " ;
-            cout << block.vtx[1].GetValueOut();
+            cout << block.vtx[1].GetValueOut() / COIN;;
             cout << "\n";
         }
 
