@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = kobocoin-qt
-VERSION = 2.2.0.0
+VERSION = 2.3.0.2
 INCLUDEPATH += src src/json \
     src/qt \
     src/tor \
