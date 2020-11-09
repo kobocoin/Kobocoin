@@ -66,6 +66,7 @@ struct Params {
 	int nTimeDriftCondition2;
     int64_t DifficultyAdjustmentInterval() const { return nPowTargetTimespan / nPowTargetSpacing; }
     uint256 nMinimumChainWork;
+    uint256 defaultAssumeValid;
     unsigned int nStakeMinAge;
     unsigned int nModifierInterval;
     unsigned int timeLimitChange;
