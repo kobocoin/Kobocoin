@@ -509,25 +509,6 @@ bool PeerHasHeader(CNodeState *state, CBlockIndex *pindex)
     return false;
 }
 
-/** Find the last common ancestor two blocks have.
- *  Both pa and pb must be non-NULL. */
-CBlockIndex* LastCommonAncestor(CBlockIndex* pa, CBlockIndex* pb) {
-    if (pa->nHeight > pb->nHeight) {
-        pa = pa->GetAncestor(pb->nHeight);
-    } else if (pb->nHeight > pa->nHeight) {
-        pb = pb->GetAncestor(pa->nHeight);
-    }
-
-    while (pa != pb && pa && pb) {
-        pa = pa->pprev;
-        pb = pb->pprev;
-    }
-
-    // Eventually all chain branches meet at the genesis block.
-    assert(pa == pb);
-    return pa;
-}
-
 /** Update pindexLastCommonBlock and add not-in-flight missing successors to vBlocks, until it has
  *  at most count entries. */
 void FindNextBlocksToDownload(NodeId nodeid, unsigned int count, std::vector<CBlockIndex*>& vBlocks, NodeId& nodeStaller, const Consensus::Params& consensusParams) {
@@ -2363,6 +2344,12 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 {
     AssertLockHeld(cs_main);
 
+    // Check that the block satisfies synchronized checkpoint
+    if (!IsInitialBlockDownload() && !CheckSyncCheckpoint(block.GetHash(), pindex->nHeight)) {
+        return state.DoS(0, error("%s: Block rejected by synchronized checkpoint", __func__),
+                         REJECT_CHECKPOINT, "bad-block-checkpoint-sync");
+    }
+
     if (block.IsProofOfStake()) {
         pindex->SetProofOfStake();
         pindex->prevoutStake = block.vtx[1].vin[0].prevout;
@@ -3194,9 +3181,8 @@ static void NotifyHeaderTip() {
     CBlockIndex* pindexHeader = NULL;
     {
         LOCK(cs_main);
-        if (!setBlockIndexCandidates.empty()) {
-            pindexHeader = *setBlockIndexCandidates.rbegin();
-        }
+        pindexHeader = pindexBestHeader;
+
         if (pindexHeader != pindexHeaderOld) {
             fNotify = true;
             fInitialBlockDownload = IsInitialBlockDownload();
@@ -3658,6 +3644,20 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     return true;
 }
 
+static bool CheckIndexAgainstCheckpoint(const CBlockIndex* pindexPrev, CValidationState& state, const CChainParams& chainparams, const uint256& hash)
+{
+    if (*pindexPrev->phashBlock == chainparams.GetConsensus().hashGenesisBlock)
+        return true;
+
+    int nHeight = pindexPrev->nHeight+1;
+    // Don't accept any forks from the main chain prior to last checkpoint
+    CBlockIndex* pcheckpoint = Checkpoints::GetLastCheckpoint(chainparams.Checkpoints());
+    if (pcheckpoint && nHeight < pcheckpoint->nHeight)
+        return state.DoS(100, error("%s: forked chain older than last checkpoint (height %d)", __func__, nHeight));
+
+    return true;
+}
+
 bool IsWitnessEnabled(const CBlockIndex* pindexPrev, const Consensus::Params& params)
 {
     LOCK(cs_main);
@@ -3728,6 +3728,12 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     // Check timestamp against prev
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast() || FutureDrift(block.GetBlockTime()) < pindexPrev->GetBlockTime())
         return state.Invalid(false, REJECT_INVALID, "time-too-old", "block's timestamp is too early");
+
+    // Check that the block satisfies synchronized checkpoint
+    if (!IsInitialBlockDownload() && !CheckSyncCheckpoint(block.GetHash(), pindexPrev->nHeight + 1, pindexPrev)) {
+        return state.DoS(0, error("%s: Block rejected by synchronized checkpoint", __func__),
+                         REJECT_CHECKPOINT, "bad-block-checkpoint-sync");
+    }
 
     // Check timestamp
     if (block.GetBlockTime() > nAdjustedTime + FutureDrift(block.GetBlockTime()))
@@ -3870,6 +3876,9 @@ static bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state
             return state.DoS(100, error("%s: prev block invalid", __func__), REJECT_INVALID, "bad-prevblk");
 
         assert(pindexPrev);
+        if (fCheckpointsEnabled && !CheckIndexAgainstCheckpoint(pindexPrev, state, chainparams, hash))
+            return error("%s: CheckIndexAgainstCheckpoint(): %s", __func__, state.GetRejectReason().c_str());
+
         if (!ContextualCheckBlockHeader(block, state, chainparams.GetConsensus(), pindexPrev, GetAdjustedTime()))
             return error("%s: Consensus::ContextualCheckBlockHeader: %s, %s", __func__, hash.ToString(), FormatStateMessage(state));
     }
@@ -3922,14 +3931,6 @@ static bool AcceptBlock(const CBlock& block, CValidationState& state, const CCha
             setDirtyBlockIndex.insert(pindex);
         }
         return error("%s: %s", __func__, FormatStateMessage(state));
-    }
-
-    // Check that the block satisfies synchronized checkpoint
-    if (!IsInitialBlockDownload() && !CheckSyncCheckpoint(pindex))
-    {
-        pindex->nStatus |= BLOCK_FAILED_VALID;
-        setDirtyBlockIndex.insert(pindex);
-        return error("%s: rejected by synchronized checkpoint", __func__);
     }
 
     int nHeight = pindex->nHeight;
@@ -4009,6 +4010,8 @@ bool TestBlockValidity(CValidationState& state, const CChainParams& chainparams,
 {
     AssertLockHeld(cs_main);
     assert(pindexPrev && pindexPrev == chainActive.Tip());
+    if (fCheckpointsEnabled && !CheckIndexAgainstCheckpoint(pindexPrev, state, chainparams, block.GetHash()))
+        return error("%s: CheckIndexAgainstCheckpoint(): %s", __func__, state.GetRejectReason().c_str());
 
     CCoinsViewCache viewNew(pcoinsTip);
     CBlockIndex indexDummy(block);
@@ -4903,13 +4906,6 @@ std::string GetWarnings(const std::string& strFor)
 
     if (GetBoolArg("-testsafemode", DEFAULT_TESTSAFEMODE))
         strStatusBar = strRPC = strGUI = "testsafemode enabled";
-	
-    // Checkpoint warning
-    if (strCheckpointWarning != "")
-    {
-        strStatusBar = strCheckpointWarning;
-        strGUI += (strGUI.empty() ? "" : uiAlertSeperator) + strCheckpointWarning;
-    }
 
     // Misc warnings like out of disk space and clock is wrong
     if (strMiscWarning != "")

@@ -1050,12 +1050,7 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
             }
         }
     }
-	
-	if (mapArgs.count("-checkpointkey")) // checkpoint master priv key
-	{
-		if (!SetCheckpointPrivKey(GetArg("-checkpointkey", "")))
-			return InitError(_("Unable to sign checkpoint, wrong checkpointkey?"));
-	}
+
 
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
 
@@ -1066,6 +1061,12 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
     // Sanity check
     if (!InitSanityCheck())
         return InitError(strprintf(_("Initialization sanity check failed. %s is shutting down."), _(PACKAGE_NAME)));
+
+    if (mapArgs.count("-checkpointkey")) // Must be run after ECC_Start() for testing of key
+    {
+        if (!SetCheckpointPrivKey(GetArg("-checkpointkey", "")))
+            return InitError(_("Unable to sign checkpoint, wrong checkpointkey?"));
+    }
 
     std::string strDataDir = GetDataDir().string();
 
