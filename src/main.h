@@ -178,6 +178,9 @@ extern CAmount maxTxFee;
 extern int64_t nMaxTipAge;
 extern bool fEnableReplacement;
 
+/** Block hash whose ancestors we will assume to have valid scripts without checking them. */
+extern uint256 hashAssumeValid;
+
 /** Best header we've seen so far (used for getheaders queries' starting points). */
 extern CBlockIndex *pindexBestHeader;
 
@@ -292,7 +295,7 @@ void UnlinkPrunedFiles(std::set<int>& setFilesToPrune);
 
 /** Find the last common ancestor two blocks have.
  *  Both pa and pb must be non-NULL. */
-// CBlockIndex* LastCommonAncestor(CBlockIndex* pa, CBlockIndex* pb);
+CBlockIndex* LastCommonAncestor(CBlockIndex* pa, CBlockIndex* pb);
 
 /** Create a new block index entry for a given block hash */
 CBlockIndex * InsertBlockIndex(uint256 hash);
