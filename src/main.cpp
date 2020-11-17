@@ -1711,7 +1711,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
 	int64_t nSubsidy;
 
-        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365 / COIN;
+        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365;
 
 
     return nSubsidy + nFees;
@@ -2590,7 +2590,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
             cout << "FM2: PoW ConnectBlock: block.vtx[0].GetValueOut() = " ;
-	        cout << block.vtx[0].GetValueOut() / COIN;
+	        cout << block.vtx[0].GetValueOut();
             cout << "\n";
 	    }
 	    if (block.vtx[0].GetValueOut() > blockReward) {
@@ -2615,10 +2615,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
 			cout << "FM2: ConnectBlock: block.vtx[0].GetValueOut() = " ;
-            cout << block.vtx[0].GetValueOut() / COIN;;
+            cout << block.vtx[0].GetValueOut();;
             cout << "\n";
             cout << "FM2: ConnectBlock: block.vtx[1].GetValueOut() = " ;
-            cout << block.vtx[1].GetValueOut() / COIN;;
+            cout << block.vtx[1].GetValueOut();;
             cout << "\n";
         }
 
@@ -7201,7 +7201,7 @@ bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge)
     }
 
     CBigNum bnCoinDay;
-    bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
+    bnCoinDay = ((bnCentSecond * CENT) / COIN)/ (24 * 60 * 60); //m2:
 
 
     LogPrint("coinage", "%s: coin age bnCoinDay=%s\n", __func__, bnCoinDay.ToString());
