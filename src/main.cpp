@@ -1711,7 +1711,7 @@ int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
 	int64_t nSubsidy;
 
-        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365;
+        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365 / COIN;
 
 
     return nSubsidy + nFees;
@@ -7201,7 +7201,7 @@ bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge)
     }
 
     CBigNum bnCoinDay;
-    bnCoinDay = ((bnCentSecond * CENT) / COIN)/ (24 * 60 * 60); //m2:
+    bnCoinDay = (bnCentSecond * CENT) / (24 * 60 * 60); //m2:
 
 
     LogPrint("coinage", "%s: coin age bnCoinDay=%s\n", __func__, bnCoinDay.ToString());
