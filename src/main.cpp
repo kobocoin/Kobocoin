@@ -1709,9 +1709,15 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 // staker's coin stake reward based on coin age spent (coin-days)
 int64_t GetProofOfStakeReward(int64_t nCoinAge, int64_t nFees)
 {
-	int64_t nSubsidy;
+//	int64_t nSubsidy;
 
-        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365 / COIN;
+//        nSubsidy = nCoinAge * MAX_MINT_PROOF_OF_STAKE / 365 / COIN;
+
+    int64_t nRewardCoinYear;
+
+    nRewardCoinYear = MAX_MINT_PROOF_OF_STAKE;
+
+    int64_t nSubsidy = nCoinAge * nRewardCoinYear / 365 / COIN;
 
 
     return nSubsidy + nFees;
@@ -2590,7 +2596,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
             cout << "FM2: PoW ConnectBlock: block.vtx[0].GetValueOut() = " ;
-	        cout << block.vtx[0].GetValueOut();
+	        cout << block.vtx[0].GetValueOut() / COIN;
             cout << "\n";
 	    }
 	    if (block.vtx[0].GetValueOut() > blockReward) {
@@ -2615,10 +2621,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 			cout << pindex->nHeight;
 			cout << "\n";
 			cout << "FM2: ConnectBlock: block.vtx[0].GetValueOut() = " ;
-            cout << block.vtx[0].GetValueOut();;
+            cout << block.vtx[0].GetValueOut() / COIN;;
             cout << "\n";
             cout << "FM2: ConnectBlock: block.vtx[1].GetValueOut() = " ;
-            cout << block.vtx[1].GetValueOut();;
+            cout << block.vtx[1].GetValueOut() / COIN;;
             cout << "\n";
         }
 
@@ -7201,7 +7207,7 @@ bool TransactionGetCoinAge(CTransaction& transaction, uint64_t& nCoinAge)
     }
 
     CBigNum bnCoinDay;
-    bnCoinDay = (bnCentSecond * CENT) / (24 * 60 * 60); //m2:
+    bnCoinDay = bnCentSecond * CENT / (24 * 60 * 60); //m2:
 
 
     LogPrint("coinage", "%s: coin age bnCoinDay=%s\n", __func__, bnCoinDay.ToString());
