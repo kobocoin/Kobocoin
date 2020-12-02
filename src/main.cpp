@@ -5151,6 +5151,8 @@ string setSubVerString(int version, string subVer) {
             return "/Satoshi:2.1.0/";
         case 80010:
             return "/Mansa:2.9.0/";
+        case 80013:
+            return "/Mansa:2.13.0/";
         default:
             return SanitizeString(subVer);
     }
