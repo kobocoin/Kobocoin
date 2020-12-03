@@ -71,7 +71,7 @@ public:
         consensus.nPowTargetSpacing2 = 2 * 60; // Prep for future hard fork
 		consensus.nPowTargetSpacing2_start = 10000000; // Prep for future hard fork
         consensus.nLastPOWBlock = 43200;
-        consensus.nRejectPoSbelow = 4000; //m2:
+        consensus.nRejectPoSbelow = 4000;
         consensus.nStakeMinAge = 24 * 60 * 60;
 		consensus.nBlockVersionCheckStart = 5000; //m2: blocks after this will be version checked.
         consensus.nModifierInterval = 10 * 60;
@@ -89,8 +89,8 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1733081600; //m2
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1764617600; //m2
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1421090888; //m2
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1421090888; //m2
 
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
@@ -186,8 +186,8 @@ public:
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1733081600; //m2
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1733081600; //m2
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1421090888; //m2
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1421090888; //m2
 
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
