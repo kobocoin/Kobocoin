@@ -68,8 +68,8 @@ public:
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 16 * 60; // 16 minutes
         consensus.nPowTargetSpacing = 60;
-        consensus.nPowTargetSpacing2 = 2 * 60; // Prep for future hard fork
-		consensus.nPowTargetSpacing2_start = 10000000; // Prep for future hard fork
+        consensus.nPowTargetSpacing2 = 2 * 60;
+		consensus.nPowTargetSpacing2_start = 10000000;
         consensus.nLastPOWBlock = 43200;
         consensus.nRejectPoSbelow = 4000;
         consensus.nStakeMinAge = 24 * 60 * 60;
