@@ -2588,14 +2588,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     if (block.IsProofOfWork()){
 	    CAmount blockReward = nFees + GetBlockSubsidy(pindex->nHeight, chainparams.GetConsensus());
-	    if (fm2) {
-			cout << "FM2: PoW ConnectBlock: pindex->nHeight = ";
-			cout << pindex->nHeight;
-			cout << "\n";
-            cout << "FM2: PoW ConnectBlock: block.vtx[0].GetValueOut() = " ;
-	        cout << block.vtx[0].GetValueOut() / COIN;
-            cout << "\n";
-	    }
+
 	    if (block.vtx[0].GetValueOut() > blockReward) {
 	        return state.DoS(100, error("ConnectBlock(): coinbase pays too much (actual=%d vs limit=%d in height=%d)",
 	                               block.vtx[0].GetValueOut(), blockReward, pindex->nHeight),
@@ -2613,30 +2606,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             return error("ConnectBlock() : %s unable to get coin age for coinstake", block.vtx[1].GetHash().ToString());
         }
 
-        if (fm2) {
-			cout << "FM2: ConnectBlock: pindex->nHeight = ";
-			cout << pindex->nHeight;
-			cout << "\n";
-			cout << "FM2: ConnectBlock: block.vtx[0].GetValueOut() = " ;
-            cout << block.vtx[0].GetValueOut() / COIN;;
-            cout << "\n";
-            cout << "FM2: ConnectBlock: block.vtx[1].GetValueOut() = " ;
-            cout << block.vtx[1].GetValueOut() / COIN;;
-            cout << "\n";
-        }
-
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nCoinAge, nFees);
-        if (fm2) {
-			cout << "FM2: ConnectBlock: pindex->nHeight = ";
-			cout << pindex->nHeight;
-			cout << "\n";
-            cout << "FM2: nCalculatedStakeReward = " ;
-            cout << nCalculatedStakeReward;
-            cout << "\n";
-			cout << "FM2: nStakeReward = " ;
-            cout << nStakeReward;
-            cout << "\n";
-        }
 
         // m2: do not allow negative stake values
         if (nCalculatedStakeReward < 0) {
@@ -2650,15 +2620,6 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         }
 
         if (nStakeReward > nCalculatedStakeReward){
-			if (fm2) {
-				cout << "FM2: ConnectBlock: coinstake pays too much, ";
-				cout << "actual = ";
-				cout << nStakeReward;
-				cout << " vs Calculated = ";
-				cout << nCalculatedStakeReward;
-				cout << "\n";
-			}
-		
             return state.DoS(100, error("ConnectBlock() : coinstake pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
         }
 
