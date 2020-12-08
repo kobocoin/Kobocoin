@@ -1,5 +1,5 @@
 ---
-name: "Kobocoin-linux-2.10.0"
+name: "Kobocoin-linux-2.13.0"
 enable_cache: true
 suites:
 - "trusty"
