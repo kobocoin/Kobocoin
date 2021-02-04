@@ -5113,7 +5113,7 @@ string setSubVerString(int version, string subVer) {
         case 80010:
             return "/Mansa:2.9.0/";
         case 80013:
-            return "/Mansa:2.13.0/";
+            return "/Mansa:2.13.1/";
         default:
             return SanitizeString(subVer);
     }
