@@ -79,7 +79,7 @@ Makefile
 Kobocoin-qt
 Kobocoin-Qt.app
 *.user*
-
+*.user
 #QT Creator
 *.config
 *.creator
