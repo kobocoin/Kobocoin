@@ -5,7 +5,7 @@ Kobocoin Core integration/staging tree
 
 #### (Master) branch CI build status.
 
-[![Build Status](https://travis-ci.org/mammix2/Kobocoin.svg?branch=master)](https://travis-ci.org/mammix2/Kobocoin)
+[![Build Status](https://travis-ci.org/kobocoin/Kobocoin.svg?branch=master)](https://travis-ci.org/kobocoin/Kobocoin)
 
 ======================================
 
