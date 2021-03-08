@@ -243,7 +243,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getStake(), model->getImmatureBalance(),
                    model->getWatchBalance(), model->getWatchUnconfirmedBalance(), model->getWatchImmatureBalance());
         connect(model, SIGNAL(balanceChanged(CAmount,CAmount,CAmount,CAmount,CAmount,CAmount,CAmount)), this, SLOT(setBalance(CAmount,CAmount,CAmount,CAmount,CAmount,CAmount,CAmount)));
-        connect(model, SIGNAL(balanceChanged(CAmount, CAmount, CAmount, CAmount,CAmount,CAmount,CAmount)), this, SLOT(updateStakeReportbalanceChanged(CAmount, CAmount, CAmount,CAmount, CAmount,CAmount,CAmount)));
+//        connect(model, SIGNAL(balanceChanged(CAmount, CAmount, CAmount, CAmount,CAmount,CAmount,CAmount)), this, SLOT(updateStakeReportbalanceChanged(CAmount, CAmount, CAmount,CAmount, CAmount,CAmount,CAmount)));
 
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
 
