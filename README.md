@@ -9,7 +9,7 @@ Kobocoin Core integration/staging tree
 
 ======================================
 
-Welcome to the Kobocoin core project.
+## Welcome to the Kobocoin core project.
 
 ### Kobocoin [KOBO] - An eco friendly micropayment system and digitial currency similar to Bitcoin. Kobocoin is optimised for mobile phone usage, and has an African heritage.
 
